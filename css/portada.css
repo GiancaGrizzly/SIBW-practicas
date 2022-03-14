@@ -91,10 +91,11 @@ li:hover {
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: blanchedalmond;
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
+    padding:10px;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -102,4 +103,5 @@ li:hover {
     width: 25%;
     height: auto;
     border: 1px solid red;
+    margin-left: 5px;
 }
