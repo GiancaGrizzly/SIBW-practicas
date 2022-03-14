@@ -7,6 +7,28 @@ img {
     height: 100%;
 }
 
+ul {
+    /* border: 1px solid red; */
+    list-style-type: none;
+    overflow: hidden;
+    background-color: rgb(118, 168, 118);
+    margin-bottom: 0;
+}
+
+li {
+    float:left;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+  
+li:hover {
+    background-color: dimgrey;
+}
+
+/* ------------------------------------ */
+/* -------------- CABECERA ------------ */
+/* ------------------------------------ */
 .header {
     width: 100%;
     height: auto;
@@ -47,21 +69,36 @@ img {
     /* border: 1px solid red; */
 }
 
-ul {
-    /* border: 1px solid red; */
-    list-style-type: none;
-    overflow: hidden;
-    background-color: rgb(118, 168, 118);
-    margin-bottom: 0;
+/* ------------------------------------ */
+/* -------------- CONTENT ------------- */
+/* ------------------------------------ */
+
+.container-content-sidebar {
+    width: 100%;
+    height: auto;
+    border: 1px solid blue;
+    background-color: plum;
+    padding: 5px;
 }
 
-li {
-    float:left;
-    color: white;
-    text-align: center;
-    padding: 25px;
+.content {
+    width: 75%;
+    height: auto;
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
-  
-li:hover {
-    background-color: dimgrey;
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.sidebar {
+    width: 25%;
+    height: auto;
+    border: 1px solid red;
 }
