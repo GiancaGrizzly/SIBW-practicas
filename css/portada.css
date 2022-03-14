@@ -78,7 +78,8 @@ li:hover {
     height: auto;
     border: 1px solid blue;
     background-color: plum;
-    padding: 5px;
+    padding-top: 5px;
+    display: flex;
 }
 
 .content {
