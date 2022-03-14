@@ -76,7 +76,7 @@ li:hover {
 .container-content-sidebar {
     width: 100%;
     height: auto;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     background-color: plum;
     padding-top: 5px;
     display: flex;
@@ -85,7 +85,7 @@ li:hover {
 .content {
     width: 75%;
     height: auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: auto auto auto;
 }
@@ -101,11 +101,13 @@ li:hover {
 .grid-item img {
     max-height: 250px;
     max-width: 250px;
+    border: 1px solid dimgrey;
 }
 
 .sidebar {
     width: 25%;
     height: auto;
     border: 1px solid red;
+    background-color: blanchedalmond;
     margin-left: 5px;
 }
