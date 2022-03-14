@@ -98,6 +98,10 @@ li:hover {
     font-weight: bold;
     text-align: center;
 }
+.grid-item img {
+    max-height: 250px;
+    max-width: 250px;
+}
 
 .sidebar {
     width: 25%;
