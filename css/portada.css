@@ -81,7 +81,7 @@ body {
     height: auto;
     background-color: plum;
     display: flex;
-    padding-top: 5px;
+    margin-top: 5px;
 }
 
 #content {
@@ -118,6 +118,10 @@ body {
     color: rgb(118, 168, 118);
 }
 
+/* ------------------------------------ */
+/* -------------- SIDEBAR ------------- */
+/* ------------------------------------ */
+
 #sidebar {
     border: 1px solid red;
     width: 25%;
@@ -131,21 +135,47 @@ body {
 .container-anuncio {
     /* border: 1px solid blue; */
     width: auto;
-    height: auto;
+    height:auto;
+    padding-bottom: 5px;
     margin-bottom: 10px;
     text-align: center;
+    border-bottom: 1px solid blueviolet;
 }
 
 .container-anuncio figure {
-    /* border: 3px solid black; */
+    /* border: 1px solid black; */
     margin: 10px;
 }
 
 .container-anuncio figure img {
+    border: 3px solid saddlebrown;
     max-width: 350px;
     max-height: 350px;
 }
 
 .container-anuncio a {
     color: black;
+    padding: 3px;
+}
+
+aside p {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+/* ------------------------------------ */
+/* -------------- FOOTER -------------- */
+/* ------------------------------------ */
+
+footer {
+    border: 1px solid yellow;
+    background-color: skyblue;
+    margin-top: 5px;
+}
+
+#pie-de-pagina {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
 }
