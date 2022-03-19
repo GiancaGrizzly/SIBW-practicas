@@ -1,0 +1,232 @@
+body {
+    background-color: lightslategrey;
+}
+
+/* ------------------------------------ */
+/* ------------- HEADER --------------- */
+/* ------------------------------------ */
+
+#cabecera {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: auto;
+    background-color: darkseagreen;
+    display: none;
+}
+
+#container-logo {
+    border: 1px solid red;
+    width: 25%;
+    height: auto;
+    display: flex;
+    margin: 0;
+}
+
+#container-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+#container-title-menu {
+    /* border: 1px solid red; */
+    width: 75%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    /* border: 1px solid red; */
+    width: auto;
+    height: auto;
+    padding: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+#menu {
+    /* border: 1px solid red; */
+    width: auto;
+    height: auto;
+}
+
+#menu ul {
+    /* border: 1px solid red; */
+    background-color: rgb(118, 168, 118);
+    margin-bottom: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+#menu li {
+    color: white;
+    float:left;
+    text-align: center;
+    padding: 25px;
+}
+
+#menu li:hover {
+    background-color: dimgrey;
+}
+
+/* ------------------------------------ */
+/* -------------- CONTENT ------------- */
+/* ------------------------------------ */
+
+#container-content-sidebar {
+    /* border: 1px solid blue; */
+    width: 100%;
+    height: auto;
+    background-color: plum;
+    display: flex;
+    margin-top: 5px;
+}
+
+#content {
+    border: 1px solid red;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#primer-parrafo {
+    margin-top: 5%;
+    margin-right: 30%;
+    padding-left: 15px;
+}
+
+#resto {
+    padding-left: 15px;
+    margin-top: 0;
+    margin-right: 30%;
+}
+
+#nombre-marca-precio {
+    /* border: 1px solid red; */
+    width: 35%;
+    height: 20%;
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#nombre-marca-precio p {
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    font-weight: bolder;
+}
+
+#nombre-marca-precio a {
+    display: none;
+}
+
+#nombre {font-size: 50px;}
+
+#marca {font-size: 35px;}
+
+#precio {font-size: 20;}
+
+#logotipo {
+    /* border: 1px solid red; */
+    width: 20%;
+    margin-left: 35%;
+}
+
+#logotipo img {
+    width: 100%;
+    height: 100%;
+}
+
+#imagenes {
+    /* border: 1px solid blue; */
+    width: 30%;
+    height: 40%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#imagenes figure {
+    /* border: 1px solid green; */
+    margin: 0;
+}
+
+#imagenes img {
+    /* border: 1px solid yellow; */
+    width: 50%;
+    height: 50%;
+}
+
+
+/* ------------------------------------ */
+/* -------------- SIDEBAR ------------- */
+/* ------------------------------------ */
+
+#sidebar {
+    border: 1px solid red;
+    width: 25%;
+    height: auto;
+    background-color: blanchedalmond;
+    display: none;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.container-anuncio {
+    /* border: 1px solid blue; */
+    width: auto;
+    height:auto;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid blueviolet;
+}
+
+.container-anuncio figure {
+    /* border: 1px solid black; */
+    margin: 10px;
+}
+
+.container-anuncio figure img {
+    border: 3px solid saddlebrown;
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.container-anuncio a {
+    color: black;
+    padding: 3px;
+}
+
+aside p {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+/* ------------------------------------ */
+/* -------------- FOOTER -------------- */
+/* ------------------------------------ */
+
+footer {
+    border: 1px solid yellow;
+    background-color: skyblue;
+    margin-top: 5px;
+}
+
+#pie-de-pagina {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
