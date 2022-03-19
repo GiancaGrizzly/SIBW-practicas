@@ -85,24 +85,35 @@ body {
 }
 
 #content {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     background-color: white;
     width: 75%;
     height: auto;
-    display: grid;
-    grid-template-areas: 
-        'nombre-marca-precio nombre-marca-precio imagen'
-        'descripcion-producto descripcion-producto imagen'
-        'descripcion-producto descripcion-producto descripcion-producto';
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#primer-parrafo {
+    margin-top: 15%;
+    margin-right: 40%;
+    padding-left: 15px;
+}
+
+#resto {
+    padding-left: 15px;
+    margin-top: 0;
 }
 
 #nombre-marca-precio {
-    border: 1px solid red;
-    width: 75%;
-    height: auto;
-    grid-area: nombre-marca-precio;
+    /* border: 1px solid red; */
+    width: 60%;
+    height: 20%;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #nombre-marca-precio p {
@@ -112,35 +123,32 @@ body {
     font-weight: bolder;
 }
 
-#nombre {
-    /* border: 1px solid red; */
-    font-size: 50px;
+#nombre {font-size: 50px;}
+
+#marca {font-size: 35px;}
+
+#precio {font-size: 20;}
+
+#imagenes {
+    /* border: 1px solid blue; */
+    width: 40%;
+    height: 62.5%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-#marca {
-    /* border: 1px solid red; */
-    font-size: 35px;
-}
-
-#precio {
-    /* border: 1px solid red; */
-    font-size: 20;
-}
-
-#imagen {
-    border: 1px solid blue;
-    grid-area: imagen;
-}
-
-#imagen figure {
+#imagenes figure {
+    /* border: 1px solid green; */
     margin: 0;
 }
 
-#descripcion-producto {
-    border: 1px solid yellow;
-    grid-area: descripcion-producto;
+#imagenes img {
+    /* border: 1px solid yellow; */
+    width: 50%;
+    height: 50%;
 }
-
 
 
 /* ------------------------------------ */
