@@ -86,15 +86,21 @@ body {
 
 #content {
     /* border: 1px solid red; */
+    background-color: white;
     width: 75%;
     height: auto;
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+        'nombre-marca-precio nombre-marca-precio imagen'
+        'descripcion-producto descripcion-producto imagen'
+        'descripcion-producto descripcion-producto descripcion-producto';
 }
 
 #nombre-marca-precio {
     border: 1px solid red;
     width: 75%;
     height: auto;
+    grid-area: nombre-marca-precio;
     display: flex;
     flex-direction: column;
 }
@@ -103,24 +109,36 @@ body {
     margin: 0;
     padding: 10px;
     text-align: left;
+    font-weight: bolder;
 }
 
 #nombre {
     /* border: 1px solid red; */
     font-size: 50px;
-    font-weight: bolder;
 }
 
 #marca {
     /* border: 1px solid red; */
     font-size: 35px;
-    font-weight: bolder;
 }
 
 #precio {
     /* border: 1px solid red; */
     font-size: 20;
-    font-weight: bolder;
+}
+
+#imagen {
+    border: 1px solid blue;
+    grid-area: imagen;
+}
+
+#imagen figure {
+    margin: 0;
+}
+
+#descripcion-producto {
+    border: 1px solid yellow;
+    grid-area: descripcion-producto;
 }
 
 
