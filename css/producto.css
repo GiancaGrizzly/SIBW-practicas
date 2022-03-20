@@ -94,40 +94,23 @@ body {
     position: relative;
 }
 
-#primer-parrafo {
-    margin-top: 15%;
-    margin-right: 40%;
+#nombre {
+    width: 50%;
     padding-left: 15px;
+    font-size: 50px;
 }
 
-#resto {
+#marca {
+    width: 50%;
     padding-left: 15px;
-    margin-top: 0;
+    font-size: 35px;
 }
 
-#nombre-marca-precio {
-    /* border: 1px solid red; */
-    width: 60%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
+#precio {
+    width: 50%;
+    padding-left: 15px;
+    font-size: 20px;
 }
-
-#nombre-marca-precio p {
-    margin: 0;
-    padding: 10px;
-    text-align: left;
-    font-weight: bolder;
-}
-
-#nombre {font-size: 50px;}
-
-#marca {font-size: 35px;}
-
-#precio {font-size: 20;}
 
 #imagenes {
     /* border: 1px solid blue; */
@@ -148,6 +131,16 @@ body {
     /* border: 1px solid yellow; */
     width: 50%;
     height: 50%;
+}
+
+#primer-parrafo {
+    margin-right: 40%;
+    padding-left: 15px;
+}
+
+#resto {
+    padding-left: 15px;
+    margin-top: 0;
 }
 
 
