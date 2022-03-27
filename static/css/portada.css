@@ -8,9 +8,9 @@ body {
 
 .cabecera {
     /* border: 1px solid red; */
+    background-color: darkseagreen;
     width: 100%;
     height: auto;
-    background-color: darkseagreen;
     display: flex;
 }
 
@@ -40,10 +40,10 @@ body {
     width: auto;
     height: auto;
     padding: 1vw;
+    text-align: center;
     font-size: 3vw;
     font-weight: bold;
     font-style: italic;
-    text-align: center;
 }
 
 .menu {
@@ -63,9 +63,9 @@ body {
 .menu li {
     color: white;
     float: left;
-    font-size: 1.5vw;
-    text-align: center;
     padding: 2vw;
+    text-align: center;
+    font-size: 1.5vw;
 }
 
 .menu li:hover {
@@ -78,9 +78,9 @@ body {
 
 .container-main-sidebar {
     /* border: 1px solid blue; */
+    background-color: plum;
     width: 100%;
     height: auto;
-    background-color: plum;
     display: flex;
     margin-top: 5px;
 }
@@ -97,9 +97,9 @@ body {
     /* border: 1px solid rgba(0, 0, 0, 0.8); */
     background-color: white;
     padding: 1vw;
+    text-align: center;
     font-size: 1.5vw;
     font-weight: bold;
-    text-align: center;
 }
 
 .grid-item figure {
@@ -124,9 +124,9 @@ body {
 
 .sidebar {
     border: 1px solid red;
+    background-color: blanchedalmond;
     width: 25%;
     height: auto;
-    background-color: blanchedalmond;
     display: flex;
     flex-direction: column;
     margin-left: 5px;
@@ -134,11 +134,11 @@ body {
 
 .container-anuncio {
     /* border: 1px solid blue; */
+    border-bottom: 1px solid blueviolet;
     width: auto;
     height:auto;
     padding: 1vw;
     text-align: center;
-    border-bottom: 1px solid blueviolet;
 }
 
 .container-anuncio figure {
