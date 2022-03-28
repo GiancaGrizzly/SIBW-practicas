@@ -13,13 +13,23 @@
 function openForm()
 {
     document.getElementById("id-container-form").style.display = "block";
-    document.getElementById("boton").style.display = "none";
+    document.getElementById("id-boton-comentarios").style.display = "none";
 }
 
 function closeForm()
 {
     document.getElementById("id-container-form").style.display = "none";
-    document.getElementById("boton").style.display = "block";
+    document.getElementById("id-boton-comentarios").style.display = "block";
+}
+
+function addComment(nombre, comentario)
+{
+    var fecha = new Date();
+    nombre = nombre + ". " + fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear() + ". " + fecha.getHours() + ":" + fecha.getMinutes();
+    document.getElementById("id-nombre-fecha").style.fontWeight = "bold";
+    document.getElementById("id-nombre-fecha").innerHTML = nombre;
+    document.getElementById("id-comentario").innerHTML = comentario;
+    document.getElementById("id-formulario-comentarios").reset();
 }
 
 function comprobarEmail(email)
