@@ -100,9 +100,9 @@
                 <!-- BOTON-FORMULARIO -->
                 <button class="boton-comentarios" id="boton" onclick="openForm()">Deja tu comentario</button>
 
-                <section class="container-form" id="formulario">
+                <section class="container-form" id="id-container-formulario">
 
-                    <form class="formulario-comentarios">
+                    <form class="formulario-comentarios" id="id-formulario">
 
                         <h4>Comentarios y opiniones</h4><br>
 
@@ -129,12 +129,12 @@
                         <input type="text" name="nombre" placeholder="Introduce nombre" required>
 
                         <label for="email"><b>Email</b></label>
-                        <input type="text" name="email" placeholder="Introduce email" required>
+                        <input type="text" id="id-email" name="email" placeholder="Introduce email" onblur="comprobarEmail(email.value)" required>
 
                         <textarea rows="10" placeholder="Escribe aquí tu comentario" required></textarea>
 
                         <button type="submit" class="boton-enviar">Enviar comentario</button>
-                        <button type="button" class="boton-enviar" onclick="closeForm()">Cancelar</button>
+                        <input type="reset" class="boton-enviar" value="Cancelar" onclick="closeForm()"></input>
 
 
                     </form>
