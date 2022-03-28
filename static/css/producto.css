@@ -59,3 +59,47 @@
     margin: 2.5vw;
     font-size: 1.2vw;
 }
+
+.boton-comentarios {
+    background-color: darkseagreen;
+    color: white;
+    opacity: 0.8;
+    float: right;
+    padding: 1vw;
+    margin: 1vw;
+    cursor: pointer;
+}
+
+.container-form {
+    border: 3px solid darkseagreen;
+    background-color: gainsboro;
+    height: auto;
+    display: none;
+    margin: 1vw;
+    padding: 1vw;
+    font-size: 1vw;
+}
+
+.formulario-comentarios {
+    padding: 1vw;
+}
+
+.formulario-comentarios h4 {
+    font-size: 1.2vw;
+}
+
+.formulario-comentarios input[type=text], .formulario-comentarios textarea {
+    width: 100%;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.boton-enviar {
+    background-color: darkseagreen;
+    color: white;
+    opacity: 0.8;
+    padding: 1vw;
+    cursor: pointer;
+}

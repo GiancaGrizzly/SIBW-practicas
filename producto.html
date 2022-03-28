@@ -97,6 +97,50 @@
                     Mucho texto e información sobre las bondades de las granadas. 
                 </p>
 
+                <!-- BOTON-FORMULARIO -->
+                <button class="boton-comentarios" id="boton" onclick="openForm()">Deja tu comentario</button>
+
+                <section class="container-form" id="formulario">
+
+                    <form class="formulario-comentarios">
+
+                        <h4>Comentarios y opiniones</h4><br>
+
+                        <!-- Primer comentario -->
+                        <p>
+                            <b>Joaquín Comentarista. 28/03/2022. 13:17</b> <br><br>
+                            "Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio.
+                            Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio."
+                        </p>
+
+                        <!-- Segundo comentario -->
+                        <p>
+                            <b>Fernando Comenta Cosas. 14/02/2022. 11:43</b> <br><br>
+                            "Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas. Voy a repetir la frase anterior para ocupar más espacio.
+                            Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas."
+                        </p>
+
+                        <br>
+
+                        <p><b>Deja tu comentario</b></p>
+
+                        <!-- Zona para el nuevo comentario -->
+                        <label for="nombre"><b>Nombre</b></label>
+                        <input type="text" name="nombre" placeholder="Introduce nombre" required>
+
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" name="email" placeholder="Introduce email" required>
+
+                        <textarea rows="10" placeholder="Escribe aquí tu comentario" required></textarea>
+
+                        <button type="submit" class="boton-enviar">Enviar comentario</button>
+                        <button type="button" class="boton-enviar" onclick="closeForm()">Cancelar</button>
+
+
+                    </form>
+
+                </section>
+
             </main>
 
             <!-- CONTAINER-SIDEBAR -->
@@ -144,4 +188,7 @@
 
     </body>
 
+    <!-- Se inserta el código javascript -->
+    <script src="static/js/producto.js"></script>
+    
 </html>
