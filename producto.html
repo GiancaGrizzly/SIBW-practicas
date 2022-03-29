@@ -102,7 +102,7 @@
 
                 <section class="container-form" id="id-container-form">
 
-                    <form class="formulario-comentarios" id="id-formulario-comentarios">
+                    <form class="formulario-comentarios" id="id-formulario-comentarios" name="formulario">
 
                         <h4>Comentarios y opiniones</h4><br>
 
@@ -134,7 +134,7 @@
                         <label for="email"><b>Email</b></label>
                         <input type="text" id="id-email" name="email" placeholder="Introduce email" onblur="comprobarEmail(email.value)" required>
 
-                        <textarea name="comentario" rows="10" placeholder="Escribe aquí tu comentario" required></textarea>
+                        <textarea id="id-comentario" name="comentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentario.value)" required></textarea>
 
                         <button type="button" class="boton-enviar" onclick="addComment(nombre.value,comentario.value)">Enviar comentario</button>
                         <input type="reset" class="boton-enviar" value="Cerrar" onclick="closeForm()"></input>
