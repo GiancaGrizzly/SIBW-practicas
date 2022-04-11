@@ -1,174 +1,83 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-    <head>
+    {% block main %}
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        
-        <!-- links CSS -->
-        <link rel="stylesheet" href="static/css/portada.css">
-        <!-- Titulo -->
-        <title>Frutas y hortalizas Castilla</title>
+    <!-- CONTAINER-MAIN -->
+    <main class="main-portada">
 
-    </head>
-
-    <body>
-
-        <!-- HEADER -->
-        <header class="cabecera">
-
-            <!-- CONTAINER-LOGO-->
-            <figure class="container-logo">
-                <img src="static/images/frutas-castilla.jpeg"/>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/aguacate.jpeg"/></a>
             </figure>
+            <figcaption>
+                <a href="producto.html">Aguacate</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/fresa.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Fresa</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/uva.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Uva</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/manzana.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Manzana</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/granada.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Granada</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/melon.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Melón</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/naranja.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Naranja</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/pera.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Pera</a>
+            </figcaption>
+        </section>
+        <section class="grid-item">
+            <figure>
+                <a href="producto.html"><img src="static/images/sandia.jpeg"/></a>
+            </figure>
+            <figcaption>
+                <a href="producto.html">Sandía</a>
+            </figcaption>
+        </section>
 
-            <!-- CONTAINER-TITLE-MENU -->
-            <div class="container-title-menu">
+    </main>
 
-                <!-- CONTAINER-TITLE -->
-                <h1 class="title">
-                    Frutas y hortalizas Castilla
-                </h1>
-
-                <!-- CONTAINER-MENU -->
-                <div class="menu">
-                    <ul>
-                        <li>Home</li>
-                        <li>Products</li>
-                        <li>Contact</li>
-                        <li>About</li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </header>
-
-        <!-- CONTAINER-MAIN-SIDEBAR -->
-        <div class="container-main-sidebar">
-
-            <!-- CONTAINER-MAIN -->
-            <main class="main-portada">
-
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/aguacate.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Aguacate</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/fresa.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Fresa</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/uva.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Uva</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/manzana.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Manzana</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/granada.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Granada</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/melon.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Melón</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/naranja.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Naranja</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/pera.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Pera</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/sandia.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Sandía</a>
-                    </figcaption>
-                </section>
-
-            </main>
-
-            <!-- CONTAINER-SIDEBAR -->
-            <aside class="sidebar">
-
-                <article class="container-anuncio">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/huerto-urbano.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Conoce los 10 huertos urbanos más maravillosos</a>
-                    </figcaption>
-                </article>
-                
-                <article class="container-anuncio">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/feria-fruta.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Participa en la feria de la fruta el próximo mes de mayo en tu ciudad!</a>
-                    </figcaption>
-                </article>
-
-                <article class="container-anuncio">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/motivos-fruta.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Unos cuantos motivos por lo que la fruta es recomendable</a>
-                    </figcaption>
-                </article>
-
-                <p>...</p>
-
-            </aside>
-
-        </div>
-
-        <!-- FOOTER -->
-        <footer class="pie-de-pagina">
-
-            <p>&copy; 2022 por Frutas Castilla</p>
-
-        </footer>
-
-    </body>
-
-</html>
+    {% endblock %}

@@ -8,8 +8,10 @@
         
         <!-- links CSS -->
         <link rel="stylesheet" href="static/css/portada.css">
+        <link rel="stylesheet" href="static/css/producto.css">
+        <link rel="stylesheet" href="static/css/producto_imprimir.css">
         <!-- Titulo -->
-        <title>Frutas y hortalizas Castilla</title>
+        <title>{% block titulo %}{% endblock %} Frutas y hortalizas Castilla</title>
 
     </head>
 
@@ -51,84 +53,9 @@
         <div class="container-main-sidebar">
 
             <!-- block MAIN -->
-            <main class="main-portada">
-                {% block main %}
+            {% block main %}
 
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/aguacate.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Aguacate</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/fresa.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Fresa</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/uva.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Uva</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/manzana.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Manzana</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/granada.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Granada</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/melon.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Melón</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/naranja.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Naranja</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/pera.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Pera</a>
-                    </figcaption>
-                </section>
-                <section class="grid-item">
-                    <figure>
-                        <a href="producto.html"><img src="static/images/sandia.jpeg"/></a>
-                    </figure>
-                    <figcaption>
-                        <a href="producto.html">Sandía</a>
-                    </figcaption>
-                </section>
-
-                {% block main %}
-            </main>
+            {% endblock %}
 
             <!-- block SIDEBAR -->
             <aside class="sidebar">
@@ -178,5 +105,8 @@
         </footer>
 
     </body>
+ 
+    {% block javascript %}
+    {% endblock %}
 
 </html>
