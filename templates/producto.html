@@ -1,110 +1,128 @@
 {% extends "base.html" %}
 
-    {% block main %}
 
-        <!-- CONTAINER-MAIN -->
-        <main class="main-producto">
+{% block css %}
 
-            <!-- CONTAINER-NOMBRE-MARCA-PRECIO -->
-            <div class="container-nombre-marca-precio">
-                <h1 class="nombre">Granada</h1>
+<link rel="stylesheet" href="static/css/producto.css">
 
-                <h2 class="marca">Una marca de granadas</h2>
+{% endblock %}
 
-                <h3 class="precio">35.90 &euro; -- <a href="producto_imprimir.html">Imprimir</a></h3>
-            </div>
-            
-            <!-- CONTAINER-IMAGENES -->
-            <section class="imagenes-producto">
-                <figure><img src="static/images/granada.jpeg"/></figure>
-                <figcaption>Foto 1 sobre granadas</figcaption>
-                <figure><img src="static/images/granada.jpeg"/></figure>
-                <figcaption>Foto 2 sobre granadas</figcaption>
-            </section>
 
-            <!-- CONTAINER-DESCRIPCION-PRODUCTO -->
-            <p class="descripcion">
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                <a href="portada.html">Link a otra posible página externa sobre granadas.</a>
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-                Mucho texto e información sobre las bondades de las granadas. 
+{% block titulo %}
+
+<!-- nombre de la fruta que se elija -->
+
+{% endblock %}
+
+
+{% block main %}
+
+<!-- CONTAINER-MAIN -->
+<main class="main-producto">
+
+    <!-- CONTAINER-NOMBRE-MARCA-PRECIO -->
+    <div class="container-nombre-marca-precio">
+        <h1 class="nombre">Granada</h1>
+
+        <h2 class="marca">Una marca de granadas</h2>
+
+        <h3 class="precio">35.90 &euro; -- <a href="producto_imprimir.php">Imprimir</a></h3>
+    </div>
+    
+    <!-- CONTAINER-IMAGENES -->
+    <section class="imagenes-producto">
+        <figure><img src="static/images/granada.jpeg"/></figure>
+        <figcaption>Foto 1 sobre granadas</figcaption>
+        <figure><img src="static/images/granada.jpeg"/></figure>
+        <figcaption>Foto 2 sobre granadas</figcaption>
+    </section>
+
+    <!-- CONTAINER-DESCRIPCION-PRODUCTO -->
+    <p class="descripcion">
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        <a href="index.php">Link a otra posible página externa sobre granadas.</a>
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. 
+    </p>
+
+    {% block formulario %}
+    <!-- BOTON-FORMULARIO -->
+    <button class="boton-comentarios" id="id-boton-comentarios" onclick="openForm()">Deja tu comentario</button>
+
+    <section class="container-form" id="id-container-form">
+
+        <form class="formulario-comentarios" id="id-formulario-comentarios" name="formulario">
+
+            <h4>Comentarios y opiniones</h4><br>
+
+            <!-- Primer comentario -->
+            <p>
+                <b>Joaquín Comentarista. 28/3/2022. 13:17</b> <br><br>
+                Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio.
+                Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio.
             </p>
 
-            <!-- BOTON-FORMULARIO -->
-            <button class="boton-comentarios" id="id-boton-comentarios" onclick="openForm()">Deja tu comentario</button>
+            <!-- Segundo comentario -->
+            <p>
+                <b>Fernando Comenta Cosas. 14/2/2022. 11:43</b> <br><br>
+                Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas. Voy a repetir la frase anterior para ocupar más espacio.
+                Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas.
+            </p>
 
-            <section class="container-form" id="id-container-form">
+            <p id="id-nombre-fecha"><b></b></p>
+            <p id="id-comentario"></p>
 
-                <form class="formulario-comentarios" id="id-formulario-comentarios" name="formulario">
+            <br>
 
-                    <h4>Comentarios y opiniones</h4><br>
+            <p><b>Deja tu comentario</b></p>
 
-                    <!-- Primer comentario -->
-                    <p>
-                        <b>Joaquín Comentarista. 28/3/2022. 13:17</b> <br><br>
-                        Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio.
-                        Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio.
-                    </p>
+            <!-- Zona para el nuevo comentario -->
+            <label for="nombre"><b>Nombre</b></label>
+            <input type="text" name="nombre" placeholder="Introduce nombre" required>
 
-                    <!-- Segundo comentario -->
-                    <p>
-                        <b>Fernando Comenta Cosas. 14/2/2022. 11:43</b> <br><br>
-                        Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas. Voy a repetir la frase anterior para ocupar más espacio.
-                        Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas.
-                    </p>
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="id-email" name="email" placeholder="Introduce email" onblur="comprobarEmail(email.value)" required>
 
-                    <p id="id-nombre-fecha"><b></b></p>
-                    <p id="id-comentario"></p>
+            <textarea id="id-comentario" name="comentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentario.value)" required></textarea>
 
-                    <br>
-
-                    <p><b>Deja tu comentario</b></p>
-
-                    <!-- Zona para el nuevo comentario -->
-                    <label for="nombre"><b>Nombre</b></label>
-                    <input type="text" name="nombre" placeholder="Introduce nombre" required>
-
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" id="id-email" name="email" placeholder="Introduce email" onblur="comprobarEmail(email.value)" required>
-
-                    <textarea id="id-comentario" name="comentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentario.value)" required></textarea>
-
-                    <button type="button" class="boton-enviar" onclick="addComment(nombre.value,comentario.value)">Enviar comentario</button>
-                    <input type="reset" class="boton-enviar" value="Cerrar" onclick="closeForm()"></input>
+            <button type="button" class="boton-enviar" onclick="addComment(nombre.value,comentario.value)">Enviar comentario</button>
+            <input type="reset" class="boton-enviar" value="Cerrar" onclick="closeForm()"></input>
 
 
-                </form>
+        </form>
 
-            </section>
-
-        </main>
-
+    </section>
     {% endblock %}
 
-    {% block javascript %}
+</main>
 
-        <!-- Se inserta el código javascript -->
-        <script src="static/js/producto.js"></script>
+{% endblock %}
 
-    {% endblock %}
+
+{% block javascript %}
+
+<!-- Se inserta el código javascript -->
+<script src="static/js/producto.js"></script>
+
+{% endblock %}

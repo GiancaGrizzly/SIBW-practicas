@@ -7,9 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         
         <!-- links CSS -->
-        <link rel="stylesheet" href="static/css/portada.css">
-        <link rel="stylesheet" href="static/css/producto.css">
-        <link rel="stylesheet" href="static/css/producto_imprimir.css">
+        <link rel="stylesheet" href="static/css/base.css">
+        {% block css %}{% endblock %}
         <!-- Titulo -->
         <title>{% block titulo %}{% endblock %} Frutas y hortalizas Castilla</title>
 
@@ -106,7 +105,6 @@
 
     </body>
  
-    {% block javascript %}
-    {% endblock %}
+    {% block javascript %}{% endblock %}
 
 </html>
