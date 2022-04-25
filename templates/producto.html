@@ -10,7 +10,7 @@
 
 {% block titulo %}
 
-<!-- nombre de la fruta que se elija -->
+Producto -
 
 {% endblock %}
 
@@ -20,14 +20,24 @@
 <!-- CONTAINER-MAIN -->
 <main class="main-producto">
 
-    <!-- CONTAINER-NOMBRE-MARCA-PRECIO -->
-    <div class="container-nombre-marca-precio">
-        <h1 class="nombre">Granada</h1>
+    <!-- CONTAINER-NOMBRE-MARCA-PRECIO-LOGOTIPO -->
+    <div class="container-nombre-marca-precio-logotipo">
 
-        <h2 class="marca">Una marca de granadas</h2>
+        <!-- CONTAINER-NOMBRE-MARCA-PRECIO -->
+        <div class="container-nombre-marca-precio">
+            <h1 class="nombre">Granada</h1>
 
-        <h3 class="precio">35.90 &euro; -- <a href="producto_imprimir.php">Imprimir</a></h3>
+            <h2 class="marca">Una marca de granadas</h2>
+
+            <h3 class="precio">35.90 &euro; -- <a href="producto_imprimir.php">Imprimir</a></h3>
+        </div>
+
+        {% block imprimirlogotipo %}
+
+        {% endblock %}
+
     </div>
+    
     
     <!-- CONTAINER-IMAGENES -->
     <section class="imagenes-producto">

@@ -1,4 +1,4 @@
-/* Ocultar y modificar comunes */
+/* Ocultar y modificar */
 
 .cabecera {
     display: none;
@@ -11,6 +11,10 @@
 .pie-de-pagina {
     border: 1px solid white;
     background-color: white;
+}
+
+.boton-comentarios {
+    display: none;
 }
 
 /* ------------------------------------ */
