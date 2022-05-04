@@ -3,7 +3,7 @@
 /* ------------------------------------ */
 
 .main-producto {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: white;
     width: 75%;
     height: auto;
@@ -56,7 +56,7 @@
 }
 
 .descripcion {
-    margin: 2.5vw;
+    margin: 2vw;
     font-size: 1.2vw;
 }
 

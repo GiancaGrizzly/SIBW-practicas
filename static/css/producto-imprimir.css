@@ -22,7 +22,6 @@
 /* ------------------------------------ */
 
 .main-producto {
-    border: none;
     width: 100%;
 }
 
@@ -47,7 +46,6 @@
     /* border: 1px solid blue; */
     width: auto;
     height: auto;
-    float: right;
 }
 
 .logotipo img {
