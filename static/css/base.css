@@ -15,7 +15,7 @@ body {
 }
 
 .container-logo {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 25%;
     height: auto;
     display: flex;
@@ -39,7 +39,6 @@ body {
     /* border: 1px solid red; */
     width: auto;
     height: auto;
-    padding: 1vw;
     text-align: center;
     font-size: 3vw;
     font-weight: bold;
@@ -50,10 +49,6 @@ body {
     /* border: 1px solid red; */
     width: auto;
     height: auto;
-}
-
-.menu ul {
-    /* border: 1px solid red; */
     background-color: rgb(118, 168, 118);
     margin-bottom: 0;
     list-style-type: none;
@@ -82,7 +77,7 @@ body {
     width: 100%;
     height: auto;
     display: flex;
-    margin-top: 5px;
+    margin-top: 0.5%;
 }
 
 /* ------------------------------------ */
@@ -90,13 +85,13 @@ body {
 /* ------------------------------------ */
 
 .sidebar {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: blanchedalmond;
     width: 25%;
     height: auto;
     display: flex;
     flex-direction: column;
-    margin-left: 5px;
+    margin-left: 0.5%;
 }
 
 .container-anuncio {
@@ -139,7 +134,7 @@ body {
 .pie-de-pagina {
     border: 1px solid yellow;
     background-color: skyblue;
-    margin-top: 5px;
+    margin-top: 0.5%;
     text-align: center;
     font-size: large;
     font-weight: bold;
