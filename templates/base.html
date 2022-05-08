@@ -8,7 +8,8 @@
         
         <!-- links CSS -->
         <link rel="stylesheet" href="static/css/base.css">
-        {% block css %}{% endblock %}
+
+        {% block include %}{% endblock %}
         
         <!-- Titulo -->
         <title>{% block titulo %}{% endblock %} - Frutas y hortalizas Castilla</title>
@@ -103,7 +104,5 @@
         </footer>
 
     </body>
- 
-    {% block javascript %}{% endblock %}
 
 </html>

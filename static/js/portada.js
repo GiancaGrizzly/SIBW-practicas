@@ -1,7 +1,7 @@
 
 function createGridFrutas(frutas) {
 
-    var maincontainer = document.getElementById("idmain-portada");
+    var maincontainer = document.getElementById('idmain-portada');
 
     var nfrutas = frutas.length;
     for (var i=0; i<nfrutas; i++) {

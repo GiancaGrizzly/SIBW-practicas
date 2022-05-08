@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 
-{% block css %}
+{% block include %}
 
 <link rel="stylesheet" href="static/css/portada.css">
+<script type="text/javascript" src="static/js/portada.js"></script>
 
 {% endblock %}
 
@@ -20,13 +21,19 @@ Home
 <!-- CONTAINER-MAIN -->
 <main class="main-portada" id="idmain-portada">
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
 
-        createGridFrutas({{ 'frutas' }});
+        var miarray = JSON.parse('{{ frutas | json_encode | raw }}');
 
-    </script> -->
+        // var container = document.getElementById('idmain-portada');
 
-    <section class="grid-item">
+        // container.innerHTML = miarray.length;
+
+        createGridFrutas(miarray);
+
+    </script>
+
+    <!-- <section class="grid-item">
         <figure>
             <a href="producto.php?fruta={{ frutas[0]['id'] }}"><img src="{{ frutas[0]['path'] }}"/></a>
         </figure>
@@ -97,7 +104,7 @@ Home
         <figcaption>
             <a href="producto.php?fruta=9">Sandías Grandes</a>
         </figcaption>
-    </section>
+    </section> -->
 
 </main>
 

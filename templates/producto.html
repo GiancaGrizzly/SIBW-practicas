@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 
-{% block css %}
+{% block include %}
 
 <link rel="stylesheet" href="static/css/producto.css">
+<script type="text/javascript" src="static/js/producto.js"></script>
 
 {% endblock %}
 
@@ -126,13 +127,5 @@ Producto
     </section>
 
 </main>
-
-{% endblock %}
-
-
-{% block javascript %}
-
-<!-- Se inserta el código javascript -->
-<script src="static/js/producto.js"></script>
 
 {% endblock %}
