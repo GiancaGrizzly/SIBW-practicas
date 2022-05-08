@@ -18,78 +18,84 @@ Home
 {% block main %}
 
 <!-- CONTAINER-MAIN -->
-<main class="main-portada">
+<main class="main-portada" id="idmain-portada">
+
+    <!-- <script type="text/javascript">
+
+        createGridFrutas({{ 'frutas' }});
+
+    </script> -->
 
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/aguacate.jpeg"/></a>
+            <a href="producto.php?fruta={{ frutas[0]['id'] }}"><img src="{{ frutas[0]['path'] }}"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Aguacate</a>
+            <a href="producto.php?fruta={{ frutas[0]['id'] }}">{{ frutas[0]['marca'] }}</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/fresa.jpeg"/></a>
+            <a href="producto.php?fruta=2"><img src="static/images/aguacate.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Fresa</a>
+            <a href="producto.php?fruta=2">Aguacates de la costa</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/uva.jpeg"/></a>
+            <a href="producto.php?fruta=3"><img src="static/images/fresa.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Uva</a>
+            <a href="producto.php?fruta=3">Fresones granadinos</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/manzana.jpeg"/></a>
+            <a href="producto.php?fruta=4"><img src="static/images/uva.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Manzana</a>
+            <a href="producto.php?fruta=4">Uvas Granada</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/granada.jpeg"/></a>
+            <a href="producto.php?fruta=5"><img src="static/images/manzana.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Granada</a>
+            <a href="producto.php?fruta=5">Manzanas Manzanilla</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/melon.jpeg"/></a>
+            <a href="producto.php?fruta=6"><img src="static/images/melon.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Melón</a>
+            <a href="producto.php?fruta=6">Melones Castilla</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/naranja.jpeg"/></a>
+            <a href="producto.php?fruta=7"><img src="static/images/naranja.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Naranja</a>
+            <a href="producto.php?fruta=7">Naranjas Costa</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/pera.jpeg"/></a>
+            <a href="producto.php?fruta=8"><img src="static/images/pera.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Pera</a>
+            <a href="producto.php?fruta=8">Peras La Pera</a>
         </figcaption>
     </section>
     <section class="grid-item">
         <figure>
-            <a href="producto.php"><img src="static/images/sandia.jpeg"/></a>
+            <a href="producto.php?fruta=9"><img src="static/images/sandia.jpeg"/></a>
         </figure>
         <figcaption>
-            <a href="producto.php">Sandía</a>
+            <a href="producto.php?fruta=9">Sandías Grandes</a>
         </figcaption>
     </section>
 

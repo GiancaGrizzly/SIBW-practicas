@@ -25,11 +25,11 @@ Producto
 
         <!-- CONTAINER-NOMBRE-MARCA-PRECIO -->
         <div class="container-nombre-marca-precio">
-            <h1 class="nombre">Granada</h1>
+            <h1 class="nombre">{{ fruta['nombre'] }}</h1>
 
-            <h2 class="marca">Una marca de granadas</h2>
+            <h2 class="marca">{{ fruta['marca'] }}</h2>
 
-            <h3 class="precio">35.90 &euro; -- <a href="producto_imprimir.php">Imprimir</a></h3>
+            <h3 class="precio">{{ fruta['precio'] }} &euro; -- <a href="producto_imprimir.php?fruta={{ fruta['id'] }}">Imprimir</a></h3>
         </div>
 
         {% block imprimirlogotipo %}
@@ -41,14 +41,16 @@ Producto
     
     <!-- CONTAINER-IMAGENES -->
     <section class="imagenes-producto">
-        <figure><img src="static/images/granada.jpeg"/></figure>
-        <figcaption>Foto 1 sobre granadas</figcaption>
-        <figure><img src="static/images/granada.jpeg"/></figure>
-        <figcaption>Foto 2 sobre granadas</figcaption>
+        <figure><img src="{{ fruta['path'] }}"/></figure>
+        <figcaption>Foto 1 sobre {{ fruta['marca'] }}</figcaption>
+        <figure><img src="{{ fruta['path'] }}"/></figure>
+        <figcaption>Foto 2 sobre {{ fruta['marca'] }}</figcaption>
     </section>
 
     <!-- CONTAINER-DESCRIPCION-PRODUCTO -->
     <p class="descripcion">
+        {{ fruta['descripcion'] }}
+        <br><br>
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
