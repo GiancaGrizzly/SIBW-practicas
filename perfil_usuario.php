@@ -1,7 +1,6 @@
 <?php
 
     require_once "/usr/local/lib/php/vendor/autoload.php";
-    require_once("db_frutas.php");
     require_once("db_usuarios.php");
 
     $loader = new \Twig\Loader\FilesystemLoader('templates');
@@ -11,13 +10,11 @@
 
     session_start();
 
-    $variablesTwig['frutas'] = get_all_frutas();
-
     if (isset($_SESSION['nombre'])) {
 
         $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
     }
 
-    echo $twig->render('portada.html', $variablesTwig);
+    echo $twig->render('perfil_usuario.html', $variablesTwig);
 
 ?>

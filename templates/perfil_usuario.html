@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block include %}
+
+<link rel="stylesheet" href="static/css/perfil_usuario.css">
+
+{% endblock %}
+
+
+{% block titulo %}
+
+Perfil
+
+{% endblock %}
+
+
+{% block main %}
+
+<!-- CONTAINER-MAIN -->
+<main class="main-perfil">
+
+    <h1><b>Nombre:</b> {{ usuario.nombre }}</h1>
+
+    <h2><b>Contraseña:</b> ****** </h2>
+
+    <h3><b>Email:</b> {{ usuario.email }}</h3>
+
+    <h4><b>Rol:</b> {{ usuario.rol }}</h4>
+
+    <button class="boton-logout"><a href="logout.php">Log out</a></button>
+
+</main>
+
+{% endblock %}

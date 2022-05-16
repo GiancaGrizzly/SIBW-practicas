@@ -148,8 +148,9 @@ body {
 /* ------------------------------------ */
 
 .pie-de-pagina {
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     background-color: skyblue;
+    padding: 0.5vw;
     margin-top: 0.5%;
     text-align: center;
     font-size: large;

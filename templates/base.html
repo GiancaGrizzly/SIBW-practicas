@@ -45,13 +45,13 @@
 
             </div>
 
-            {% if not user %}
+            {% if not usuario %}
 
-            <button class="boton-login" id="id-boton-login"><a href="login.php">Login</a></button>
+            <button class="boton-login"><a href="login.php">Login</a></button>
 
             {% else %}
 
-            <button class="boton-login" id="id-boton-logout"><a href="logout.php">Logout</a></button>
+            <button class="boton-login"><a href="perfil_usuario.php">{{ usuario.nombre }}</a></button>
 
             {% endif %}
 

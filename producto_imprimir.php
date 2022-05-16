@@ -1,10 +1,14 @@
 <?php
 
     require_once "/usr/local/lib/php/vendor/autoload.php";
-    include("db_frutas.php");
+    require_once("db_frutas.php");
 
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader);
+
+    $variablesTwig = [];
+
+    session_start();
 
     if (isset($_GET['fruta'])) {
 
@@ -14,9 +18,8 @@
 
         $idFruta = -1;
     }
+    $variablesTwig['fruta'] = get_fruta($idFruta);
 
-    $fruta = get_fruta($idFruta);
-
-    echo $twig->render('producto_imprimir.html', ['fruta' => $fruta]);
+    echo $twig->render('producto_imprimir.html', $variablesTwig);
 
 ?>
