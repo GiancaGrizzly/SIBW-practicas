@@ -45,6 +45,16 @@
 
             </div>
 
+            {% if not user %}
+
+            <button class="boton-login" id="id-boton-login">Login</button>
+
+            {% else %}
+
+            <button class="boton-login" id="id-boton-logout">Logout</button>
+
+            {% endif %}
+
             {% endblock %}
         </header>
 
