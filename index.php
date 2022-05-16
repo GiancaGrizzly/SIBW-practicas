@@ -6,7 +6,7 @@
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader);
 
-    $frutas = getFrutasPortada();
+    $frutas = get_all_frutas();
 
     echo $twig->render('portada.html', ['frutas' => $frutas]);
 

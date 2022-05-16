@@ -13,7 +13,7 @@
     }
 
 
-    function getFrutaProducto($idFruta) {
+    function get_fruta($idFruta) {
 
         $mysqli = conectarBD();
         if ($mysqli->connect_errno) {
@@ -21,11 +21,11 @@
             echo("Fallo al conectar: " . $mysqli->connect_errno);
         }
 
-        $stmt = $mysqli->prepare("SELECT * FROM frutas WHERE id = ?");
-        $stmt->bind_param('i', $idFruta);
-        $stmt->execute();
+        $stmt_frutas = $mysqli->prepare("SELECT * FROM frutas WHERE id = ?");
+        $stmt_frutas->bind_param('i', $idFruta);
+        $stmt_frutas->execute();
 
-        $myquery = $stmt->get_result();
+        $myquery = $stmt_frutas->get_result();
 
         $fruta = array("id"=> "-1", "nombre" => "nombredefecto", "marca" => "marcadefecto", "precio" => 0, "descripcion" => "descripciondefecto", "path" => "static/images/granada.jpeg");
 
@@ -47,7 +47,7 @@
     }
 
 
-    function getFrutasPortada() {
+    function get_all_frutas() {
 
         $mysqli = conectarBD();
         if ($mysqli->connect_errno) {
@@ -56,8 +56,6 @@
         }
 
         $myquery = $mysqli->query("SELECT id, marca FROM frutas");
-
-        // $fruta = array("id"=> "-1", "marca" => "marcadefecto", "path" => "static/images/granada.jpeg");
 
         $frutas = array();
 

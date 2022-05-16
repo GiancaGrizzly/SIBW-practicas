@@ -15,7 +15,7 @@
         $idFruta = -1;
     }
 
-    $fruta = getFrutaProducto($idFruta);
+    $fruta = get_fruta($idFruta);
 
     echo $twig->render('producto_imprimir.html', ['fruta' => $fruta]);
 
