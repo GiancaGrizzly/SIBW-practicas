@@ -70,14 +70,17 @@ body {
 .boton-login {
     height: min-content;
     background-color: lightslategray;
-    color: white;
-    /* float: right; */
     margin: 1vw;
     padding: 1vw;
     font-size: 1vw;
     cursor: pointer;
     position: absolute;
     right: 0;
+}
+
+.boton-login a {
+    text-decoration: none;
+    color: white;
 }
 
 /* ------------------------------------ */
