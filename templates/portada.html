@@ -23,9 +23,9 @@ Home
 
     <script type="text/javascript">
 
-        var miarray = JSON.parse('{{ frutas | json_encode | raw }}');
+        var array_frutas = JSON.parse('{{ frutas | json_encode | raw }}');
 
-        createGridFrutas(miarray);
+        createGridFrutas(array_frutas);
 
     </script>
 

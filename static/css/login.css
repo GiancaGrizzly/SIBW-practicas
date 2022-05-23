@@ -27,7 +27,7 @@
     justify-content: center;
 }
 
-.form-login input[type=text] {
+.form-login input[type=text], input[type=password] {
     width: 100%;
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
