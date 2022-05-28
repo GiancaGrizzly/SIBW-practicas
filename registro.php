@@ -1,7 +1,7 @@
 <?php
 
 require_once "/usr/local/lib/php/vendor/autoload.php";
-require_once("db_usuarios.php");
+require_once "db.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader);
@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $email = $_POST['email'];
 
-    if (check_nombre($nombre) && check_email($email)) {
+    if (check_if_not_exists('nombre', $nombre) && check_if_not_exists('email', $email)) {
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
 

@@ -1,31 +1,30 @@
 <?php
 
-    require_once "/usr/local/lib/php/vendor/autoload.php";
-    require_once("db_frutas.php");
-    require_once("db_usuarios.php");
+require_once "/usr/local/lib/php/vendor/autoload.php";
+require_once "db.php";
 
-    $loader = new \Twig\Loader\FilesystemLoader('templates');
-    $twig = new \Twig\Environment($loader);
+$loader = new \Twig\Loader\FilesystemLoader('templates');
+$twig = new \Twig\Environment($loader);
 
-    $variablesTwig = [];
+$variablesTwig = [];
 
-    session_start();
+session_start();
 
-    if (isset($_GET['fruta'])) {
+if (isset($_GET['fruta'])) {
 
-        $idFruta = $_GET['fruta'];
-    }
-    else {
+    $idFruta = $_GET['fruta'];
+}
+else {
 
-        $idFruta = -1;
-    }
-    $variablesTwig['fruta'] = get_fruta($idFruta);
+    $idFruta = -1;
+}
+$variablesTwig['fruta'] = get_fruta($idFruta);
 
-    if (isset($_SESSION['nombre'])) {
+if (isset($_SESSION['nombre'])) {
 
-        $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
-    }
+    $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
+}
 
-    echo $twig->render('producto.html', $variablesTwig);
+echo $twig->render('producto.html', $variablesTwig);
 
 ?>
