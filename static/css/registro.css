@@ -6,7 +6,7 @@
 /* --------------- MAIN --------------- */
 /* ------------------------------------ */
 
-.main-login {
+.main-registrarse {
     /* border: 1px solid red; */
     background-color: darkseagreen;;
     width: 75%;
@@ -16,7 +16,7 @@
     justify-content: center;
 }
 
-.form-login {
+.form-registrarse {
     /* border: 1px solid blue; */
     width: 25%;
     height: auto;
@@ -27,7 +27,7 @@
     justify-content: center;
 }
 
-.form-login input[type=text], input[type=password] {
+.form-registrarse input[type=text], input[type=password], input[type=email] {
     width: 100%;
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
@@ -35,15 +35,10 @@
     padding-bottom: 0.5vw;
 }
 
-.form-login input[type=submit], button {
+.form-registrarse input[type=submit] {
     width: min-content;
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
     padding-top: 0.5vw;
     padding-bottom: 0.5vw;
-}
-
-.form-login a {
-    text-decoration: none;
-    color: black;
 }

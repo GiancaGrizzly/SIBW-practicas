@@ -17,10 +17,14 @@
             
             $_SESSION['nombre'] = $nombre;
         }
+        else {
+            alert("Error. Usuario o contraseña fallidos.");
+        }
         
-        header("Location: index.php");	// redirecciona a la pagina ***
-        
-        exit();
+        if (!headers_sent()) {
+
+            header("Location: index.php");	// redirecciona a la pagina ***
+        }
     }
 
     echo $twig->render('login.html', []);

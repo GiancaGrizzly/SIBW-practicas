@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block include %}
+
+<link rel="stylesheet" href="static/css/registro.css">
+
+{% endblock %}
+
+
+{% block titulo %}
+
+Registrarse
+
+{% endblock %}
+
+
+{% block main %}
+
+<!-- CONTAINER-MAIN -->
+<main class="main-registrarse">
+
+  <form class="form-registrarse" action="registro.php" method="post">
+
+    <label for="nombre"><b>Nombre</b></label>
+    <input type="text" name="nombre" placeholder="Introduce nombre" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" name="password" placeholder="Introduce contraseña" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="email" name="email" placeholder="Introduce email" required>
+
+    <input type="submit" value="Registrarse"/>
+
+  </form>
+
+</main>
+
+{% endblock %}

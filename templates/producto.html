@@ -81,6 +81,7 @@ Producto
     </p>
 
     <!-- BOTON-FORMULARIO -->
+
     <button class="boton-comentarios" id="id-boton-comentarios" onclick="openForm()">Deja tu comentario</button>
 
     <section class="container-form" id="id-container-form">
@@ -108,6 +109,8 @@ Producto
 
             <br>
 
+            {% if usuario %}
+
             <p><b>Deja tu comentario</b></p>
 
             <!-- Zona para el nuevo comentario -->
@@ -117,11 +120,12 @@ Producto
             <label for="email"><b>Email</b></label>
             <input type="text" id="id-email" name="email" placeholder="Introduce email" onblur="comprobarEmail(email.value)" required>
 
-            <textarea id="id-comentario" name="comentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentario.value)" required></textarea>
+            <textarea name="comentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentario.value)" required></textarea>
 
             <button type="button" class="boton-enviar" onclick="addComment(nombre.value,comentario.value)">Enviar comentario</button>
             <input type="reset" class="boton-enviar" value="Cerrar" onclick="closeForm()"></input>
 
+            {% endif %}
 
         </form>
 
