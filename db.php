@@ -44,7 +44,7 @@ function get_fruta($idFruta) {
 
     $query_fruta = $stmt_get_fruta->get_result();
 
-    $fruta = array("id"=> "-1", "nombre" => "nombredefecto", "marca" => "marcadefecto", "precio" => 0, "descripcion" => "descripciondefecto", "path" => "static/images/granada.jpeg");
+    $fruta = array("id"=>"-1", "nombre"=>"nombredefecto", "marca"=>"marcadefecto", "precio"=>0, "descripcion"=>"descripciondefecto", "path"=>"static/images/granada.jpeg");
 
     if ($query_fruta->num_rows > 0) {
 
@@ -105,24 +105,6 @@ function get_usuario($nombre) {
         return $usuario;
     }
     else return 0;
-}
-/*
- * Devuelve un array con todos los usuarios
- */
-function get_all_usuarios() {
-
-    $mysqli = connect_db();
-
-    $myquery = $mysqli->query("SELECT nombre, password, rol, email FROM usuarios");
-
-    $usuarios = array();
-
-    while ($row = $myquery->fetch_assoc()) {
-
-        array_push($usuarios, ["nombre" => $row['nombre'], "password" => $row['password'], "rol" => $row['rol'], "email" => $row['email']]);
-    }
-
-    return $usuarios;
 }
 /*
  * Registra un nuevo usuario en la base de datos
