@@ -1,13 +1,13 @@
 
 function openForm()
 {
-    document.getElementById("id-container-form").style.display = "block";
+    document.getElementById("id-container-comentarios").style.display = "block";
     document.getElementById("id-boton-comentarios").style.display = "none";
 }
 
 function closeForm()
 {
-    document.getElementById("id-container-form").style.display = "none";
+    document.getElementById("id-container-comentarios").style.display = "none";
     document.getElementById("id-boton-comentarios").style.display = "block";
 }
 
@@ -63,4 +63,27 @@ function censurarComentario(comentario)
     // document.getElementById("id-comentario").value = comentario;
     
     document.forms["formulario"]["comentario"].value = comentario;
+}
+
+function createListComentarios(comentarios) {
+
+    var containercomentarios = document.getElementById('lista-comentarios');
+
+    var ncomentarios = comentarios.length;
+    for (var i=0; i<ncomentarios; i++) {
+
+        var liItem = document.createElement('li');
+        liItem.className = 'li-comentarios';
+
+        var nombrefecha = document.createElement('span');
+        nombrefecha.innerHTML = comentarios[i].usuario + ". " + comentarios[i].fecha;
+
+        var comentario = document.createElement('p');
+        comentario.innerHTML = comentarios[i].comentario;
+
+        liItem.appendChild(nombrefecha);
+        liItem.appendChild(comentario);
+
+        containercomentarios.appendChild(liItem);
+    }
 }

@@ -37,7 +37,7 @@
 
                 <!-- CONTAINER-MENU -->
                 <ul class="menu">
-                    <li>Home</li>
+                    <li><a href="index.php">Home</a></li>
                     <li>Products</li>
                     <li>Contact</li>
                     <li>About</li>
@@ -47,11 +47,9 @@
 
             <button class="boton-gris" id="boton-login">
             {% if not usuario %}
-
             <a href="login.php">Login</a>
 
             {% else %}
-
             <a href="perfil_usuario.php">{{ usuario.nombre }}</a>
 
             {% endif %}

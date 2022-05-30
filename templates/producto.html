@@ -75,50 +75,32 @@ Producto
 
     <button class="boton-comentarios" id="id-boton-comentarios" onclick="openForm()">Deja tu comentario</button>
 
-    <section class="container-form" id="id-container-form">
+    <section class="container-comentarios" id="id-container-comentarios">
 
-        <form id="id-formulario-comentarios" name="formulario">
+        <h4>Comentarios y opiniones</h4>
 
-            <h4>Comentarios y opiniones</h4><br>
+        <ul id="lista-comentarios">
+        <script type="text/javascript">
 
-            <!-- Primer comentario -->
-            <p>
-                <b>Joaquín Comentarista. 28/3/2022. 13:17</b> <br><br>
-                Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio.
-                Aquí va todo el comentario que la persona indicada hiciese el día que sea a la hora que fuese. Voy a repetir la frase anterior para ocupar más espacio.
-            </p>
+            var array_comentarios = JSON.parse('{{ comentarios | json_encode | raw }}');
 
-            <!-- Segundo comentario -->
-            <p>
-                <b>Fernando Comenta Cosas. 14/2/2022. 11:43</b> <br><br>
-                Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas. Voy a repetir la frase anterior para ocupar más espacio.
-                Aquí iría otro comentario distinto escrito por la persona de arriba en la fecha y hora indicadas.
-            </p>
+            createListComentarios(array_comentarios);
 
-            <p id="id-nombre-fecha"><b></b></p>
-            <p id="id-comentario"></p>
+        </script>
+        </ul>
 
-            <br>
-
-            {% if usuario %}
+        {% if usuario %}
+        <form id="id-formulario-comentarios" name="formulario" action="producto.php" method="post">
 
             <p><b>Deja tu comentario</b></p>
 
-            <!-- Zona para el nuevo comentario -->
-            <label for="nombre"><b>Nombre</b></label>
-            <input type="text" name="nombre" placeholder="Introduce nombre" required>
+            <textarea name="comentarioText" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentarioText.value)" required></textarea>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" id="id-email" name="email" placeholder="Introduce email" onblur="comprobarEmail(email.value)" required>
-
-            <textarea name="comentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentario.value)" required></textarea>
-
-            <button type="button" class="boton-comentarios" onclick="addComment(nombre.value,comentario.value)">Enviar comentario</button>
+            <button type="submit" class="boton-comentarios">Enviar comentario</button>
             <button type="reset" class="boton-comentarios" onclick="closeForm()">Cerrar</button>
 
-            {% endif %}
-
         </form>
+        {% endif %}
 
     </section>
 

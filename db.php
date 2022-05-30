@@ -44,20 +44,22 @@ function get_fruta($idFruta) {
 
     $query_fruta = $stmt_get_fruta->get_result();
 
-    $fruta = array("id"=>"-1", "nombre"=>"nombredefecto", "marca"=>"marcadefecto", "precio"=>0, "descripcion"=>"descripciondefecto", "path"=>"static/images/granada.jpeg");
-
     if ($query_fruta->num_rows > 0) {
 
         $row = $query_fruta->fetch_assoc();
 
-        $smtm_get_imagen = $mysqli->prepare("SELECT path FROM imagenes WHERE fruta = ?");
-        $smtm_get_imagen->bind_param('i', $idFruta);
-        $smtm_get_imagen->execute();
+        $stmt_get_imagen = $mysqli->prepare("SELECT path FROM imagenes WHERE fruta = ?");
+        $stmt_get_imagen->bind_param('i', $idFruta);
+        $stmt_get_imagen->execute();
 
-        $query_imagen = $smtm_get_imagen->get_result();
+        $query_imagen = $stmt_get_imagen->get_result();
         $imagen = $query_imagen->fetch_assoc();
 
         $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "path"=>$imagen['path']);
+    }
+    else {
+
+        $fruta = array("id"=>"-1", "nombre"=>"nombredefecto", "marca"=>"marcadefecto", "precio"=>0, "descripcion"=>"descripciondefecto", "path"=>"static/images/granada.jpeg");
     }
 
     return $fruta;
@@ -151,6 +153,42 @@ function check_if_not_exists($field, $value) {
         return false;
     }
     return true;
+}
+/*
+ * Devuelve un array con todos los comentarios
+ */
+function get_all_comentarios($idFruta) {
+
+    $mysqli = connect_db();
+
+    $stmt_get_comentarios = $mysqli->prepare("SELECT usuario, comentario, fecha FROM comentarios WHERE fruta=?");
+    $stmt_get_comentarios->bind_param('i', $idFruta);
+    $stmt_get_comentarios->execute();
+
+    $query_comentarios = $stmt_get_comentarios->get_result();
+
+    $comentarios = array();
+
+    while ($row = $query_comentarios->fetch_assoc()) {
+
+        array_push($comentarios, ["usuario"=>$row['usuario'], "comentario"=>$row['comentario'], "fecha"=>$row['fecha']]);
+    }
+
+    return $comentarios;
+}
+/*
+ * Registra un nuevo comentario en la fruta $fruta hecho por $usuario
+ */
+function insert_comentario($fruta, $usuario, $comentario) {
+
+    $mysqli = connect_db();
+
+    $fecha = new DateTime();
+    $fecha = $fecha->format('Y-m-d H:i');
+
+    $stmt_insert_usuario = $mysqli->prepare("INSERT INTO comentarios (fruta, usuario, comentario, fecha) VALUES (?, ?, ?, ?);");
+    $stmt_insert_usuario->bind_param('isss', $fruta, $usuario, $comentario, $fecha);
+    $stmt_insert_usuario->execute();
 }
 
 ?>

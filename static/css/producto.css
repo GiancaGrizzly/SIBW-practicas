@@ -57,17 +57,30 @@ h3, h4 {
     color: white;
 }
 
-.container-form {
+.container-comentarios {
     border: 3px solid var(--green1);
     background-color: gainsboro;
     display: none;
     margin: 1vw;
-    padding: 1vw;
+    padding: 2vw;
     font-size: 1vw;
 }
 
-.container-form button {
+.container-comentarios button {
     width: 20%;
+}
+
+#lista-comentarios {
+    max-height: 30vw;
+    overflow: scroll;
+}
+
+.li-comentarios {
+    margin: 1vw;
+}
+
+span {
+    font-weight: bold;
 }
 
 form {

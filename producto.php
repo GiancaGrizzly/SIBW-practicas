@@ -12,17 +12,20 @@ session_start();
 
 if (isset($_GET['fruta'])) {
 
-    $idFruta = $_GET['fruta'];
+    $_SESSION['fruta'] = $_GET['fruta'];
 }
-else {
+$variablesTwig['fruta'] = get_fruta($_SESSION['fruta']);
 
-    $idFruta = -1;
-}
-$variablesTwig['fruta'] = get_fruta($idFruta);
+$variablesTwig['comentarios'] = get_all_comentarios($_SESSION['fruta']);
 
 if (isset($_SESSION['nombre'])) {
 
     $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
+}
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    insert_comentario($_SESSION['fruta'], $_SESSION['nombre'], $_POST['comentarioText']);
 }
 
 echo $twig->render('producto.html', $variablesTwig);
