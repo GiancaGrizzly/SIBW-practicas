@@ -1,4 +1,4 @@
-.boton-login {
+#boton-login {
     display: none;
 }
 
@@ -6,44 +6,6 @@
 /* --------------- MAIN --------------- */
 /* ------------------------------------ */
 
-.main-login {
-    /* border: 1px solid red; */
-    background-color: darkseagreen;;
-    width: 75%;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.form-login {
-    /* border: 1px solid blue; */
-    width: 25%;
-    height: auto;
-    margin-top: 3vw;
-    display: flex;
-    flex-direction: column;
+.form-usuario {
     align-items: center;
-    justify-content: center;
-}
-
-.form-login input[type=text], input[type=password] {
-    width: 100%;
-    margin-top: 0.5vw;
-    margin-bottom: 0.5vw;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
-}
-
-.form-login input[type=submit], button {
-    width: min-content;
-    margin-top: 0.5vw;
-    margin-bottom: 0.5vw;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
-}
-
-.form-login a {
-    text-decoration: none;
-    color: black;
 }

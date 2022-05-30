@@ -17,6 +17,10 @@
     display: none;
 }
 
+a {
+    display: none;
+}
+
 /* ------------------------------------ */
 /* -------------- CONTENT ------------- */
 /* ------------------------------------ */
@@ -28,29 +32,15 @@
 .container-nombre-marca-precio-logotipo {
     /* border: 1px solid red; */
     width: 67%;
-    height: auto;
     float: left;
     display: flex;
+    justify-content: space-between;
+    margin: 1vw;
 }
 
 .container-nombre-marca-precio {
     /* border: 1px solid red; */
     width: auto;
-}
-
-.precio a {
-    display: none;
-}
-
-.logotipo {
-    /* border: 1px solid blue; */
-    width: auto;
-    height: auto;
-}
-
-.logotipo img {
-    width: 100%;
-    height: 100%;
 }
 
 .imagenes-producto {
@@ -60,8 +50,4 @@
 
 .descripcion {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.descripcion a {
-    display: none;
 }

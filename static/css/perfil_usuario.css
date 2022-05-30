@@ -1,4 +1,4 @@
-.boton-login {
+#boton-login {
     display: none;
 }
 
@@ -6,27 +6,6 @@
 /* --------------- MAIN --------------- */
 /* ------------------------------------ */
 
-.main-perfil {
-    border: 1px solid red;
-    background-color: darkseagreen;;
-    width: 75%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    padding: 1vw;
-    font-size: 2vw;
-}
-
-.boton-logout {
-    height: min-content;
-    background-color: lightslategray;
-    margin: 1vw;
-    padding: 1vw;
-    font-size: 1vw;
-    cursor: pointer;
-}
-
-.boton-logout a {
-    text-decoration: none;
-    color: white;
+.form-usuario button {
+    align-self: center;
 }

@@ -1,5 +1,72 @@
+:root {
+    --main-grey: lightslategrey;
+    --green1: darkseagreen;
+    --green2: rgb(118, 168, 118);
+    --hover: dimgrey;
+    --sidebar: blanchedalmond;
+    --footer: skyblue;
+}
+
 body {
-    background-color: lightslategrey;
+    background-color: var(--main-grey);
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    margin: 1vw;
+    padding: 1vw;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--hover);
+}
+
+.boton-gris {
+    background-color: var(--main-grey);
+    color: white;
+}
+
+.boton-gris a {
+    text-decoration: none;
+    color: white;
+}
+
+input[type=text], input[type=email], input[type=password], textarea {
+    width: 100%;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.main-usuario {
+    background-color: var(--green1);
+    width: 75%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 1.5vw;
+}
+
+.form-usuario {
+    width: 30%;
+    margin-top: 3vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-usuario button {
+    width: 50%;
 }
 
 /* ------------------------------------ */
@@ -8,37 +75,26 @@ body {
 
 .cabecera {
     /* border: 1px solid red; */
-    background-color: darkseagreen;
+    background-color: var(--green1);
     width: 100%;
-    height: auto;
     display: flex;
 }
 
 .container-logo {
     /* border: 1px solid red; */
     width: 25%;
-    height: auto;
     display: flex;
-    margin: 0;
-}
-
-.container-logo img {
-    width: 100%;
-    height: 100%;
 }
 
 .container-title-menu {
     /* border: 1px solid red; */
     width: 75%;
-    height: auto;
     display: flex;
     flex-direction: column;
 }
 
 .title {
     /* border: 1px solid red; */
-    width: auto;
-    height: auto;
     text-align: center;
     font-size: 3vw;
     font-weight: bold;
@@ -47,12 +103,9 @@ body {
 
 .menu {
     /* border: 1px solid red; */
-    width: auto;
-    height: auto;
-    background-color: rgb(118, 168, 118);
+    background-color: var(--green2);
     margin-bottom: 0;
     list-style-type: none;
-    overflow: hidden;
 }
 
 .menu li {
@@ -64,23 +117,12 @@ body {
 }
 
 .menu li:hover {
-    background-color: dimgrey;
+    background-color: var(--hover);
 }
 
-.boton-login {
-    height: min-content;
-    background-color: lightslategray;
-    margin: 1vw;
-    padding: 1vw;
-    font-size: 1vw;
-    cursor: pointer;
+#boton-login {
     position: absolute;
     right: 0;
-}
-
-.boton-login a {
-    text-decoration: none;
-    color: white;
 }
 
 /* ------------------------------------ */
@@ -89,9 +131,7 @@ body {
 
 .container-main-sidebar {
     /* border: 1px solid blue; */
-    /* background-color: plum; */
     width: 100%;
-    height: auto;
     display: flex;
     margin-top: 0.5%;
 }
@@ -102,9 +142,8 @@ body {
 
 .sidebar {
     /* border: 1px solid red; */
-    background-color: blanchedalmond;
+    background-color: var(--sidebar);
     width: 25%;
-    height: auto;
     display: flex;
     flex-direction: column;
     margin-left: 0.5%;
@@ -112,22 +151,13 @@ body {
 
 .container-anuncio {
     /* border: 1px solid blue; */
-    border-bottom: 1px solid blueviolet;
-    width: auto;
-    height:auto;
+    border-bottom: 1px solid var(--main-grey);
     padding: 1vw;
     text-align: center;
 }
 
-.container-anuncio figure {
-    /* border: 1px solid black; */
-    margin: 0;
-}
-
-.container-anuncio figure img {
-    border: 3px solid saddlebrown;
-    width: 100%;
-    height: 100%;
+.container-anuncio img {
+    border: 3px solid var(--green2);
     max-width: 350px;
     max-height: 350px;
 }
@@ -149,7 +179,7 @@ body {
 
 .pie-de-pagina {
     /* border: 1px solid yellow; */
-    background-color: skyblue;
+    background-color: var(--footer);
     padding: 0.5vw;
     margin-top: 0.5%;
     text-align: center;

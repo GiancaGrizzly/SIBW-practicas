@@ -26,11 +26,11 @@ Producto
 
         <!-- CONTAINER-NOMBRE-MARCA-PRECIO -->
         <div class="container-nombre-marca-precio">
-            <h1 class="nombre">{{ fruta['nombre'] }}</h1>
+            <h1>{{ fruta['nombre'] }}</h1>
 
-            <h2 class="marca">{{ fruta['marca'] }}</h2>
+            <h2>{{ fruta['marca'] }}</h2>
 
-            <h3 class="precio">{{ fruta['precio'] }} &euro; -- <a href="producto_imprimir.php?fruta={{ fruta['id'] }}">Imprimir</a></h3>
+            <h3>{{ fruta['precio'] }} &euro; -- <a href="producto_imprimir.php?fruta={{ fruta['id'] }}">Imprimir</a></h3>
         </div>
 
         {% block imprimirlogotipo %}
@@ -62,17 +62,8 @@ Producto
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
+        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas.
         <a href="index.php">Link a otra posible página externa sobre granadas.</a>
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
-        Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
         Mucho texto e información sobre las bondades de las granadas. Mucho texto e información sobre las bondades de las granadas. 
@@ -86,7 +77,7 @@ Producto
 
     <section class="container-form" id="id-container-form">
 
-        <form class="formulario-comentarios" id="id-formulario-comentarios" name="formulario">
+        <form id="id-formulario-comentarios" name="formulario">
 
             <h4>Comentarios y opiniones</h4><br>
 
@@ -122,8 +113,8 @@ Producto
 
             <textarea name="comentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentario.value)" required></textarea>
 
-            <button type="button" class="boton-enviar" onclick="addComment(nombre.value,comentario.value)">Enviar comentario</button>
-            <input type="reset" class="boton-enviar" value="Cerrar" onclick="closeForm()"></input>
+            <button type="button" class="boton-comentarios" onclick="addComment(nombre.value,comentario.value)">Enviar comentario</button>
+            <button type="reset" class="boton-comentarios" onclick="closeForm()">Cerrar</button>
 
             {% endif %}
 

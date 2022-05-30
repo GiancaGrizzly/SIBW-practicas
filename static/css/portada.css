@@ -5,13 +5,18 @@
 .main-portada {
     /* border: 1px solid red; */
     width: 75%;
-    height: auto;
     display: grid;
     grid-template-columns: auto auto auto;
 }
 
+.imagen {
+    /* border: 1px solid red; */
+    max-width: 250px;
+    max-height: 250px;
+}
+
 .grid-item {
-    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
     background-color: white;
     padding: 1vw;
     text-align: center;
@@ -19,18 +24,11 @@
     font-weight: bold;
 }
 
-.grid-item figure {
-    margin: 0;
-}
-
-.grid-item figure img {
-    /* border: 1px solid dimgrey; */
-    width: 100%;
-    height: 100%;
+.grid-item img {
     max-width: 250px;
     max-height: 250px;
 }
 
 .grid-item a {
-    color: rgb(118, 168, 118);
+    color: var(--green2);
 }

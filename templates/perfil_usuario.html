@@ -18,17 +18,27 @@ Perfil
 {% block main %}
 
 <!-- CONTAINER-MAIN -->
-<main class="main-perfil">
+<main class="main-usuario">
 
-    <h1><b>Nombre: </b> {{ usuario.nombre }}</h1>
+    <form class="form-usuario" action="perfil_usuario.php" method="post">
 
-    <h2><b>Contraseña: </b> ****** </h2>
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" name="nombre" value="{{ usuario.nombre }}" required>
 
-    <h3><b>Email: </b> {{ usuario.email }}</h3>
+        <label for="password"><b>Password</b></label>
+        <input type="password" name="password" value="********" required>
 
-    <h4><b>Rol: </b> {{ usuario.rol }}</h4>
+        <label for="email"><b>Email</b></label>
+        <input type="email" name="email" value="{{ usuario.email }}" required>
 
-    <button class="boton-logout"><a href="logout.php">Log out</a></button>
+        <label for="rol"><b>Rol</b></label>
+        <input type="text" name="rol" value="{{ usuario.rol }}" required>
+
+        <button class="boton-gris" type="submit">Guardar cambios</button>
+
+        <button class="boton-gris" type="button"><a href="logout.php">Log out</a></button>
+
+    </form>
 
 </main>
 
