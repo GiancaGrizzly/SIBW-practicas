@@ -126,7 +126,7 @@ function insert_usuario($nombre, $hash, $email, $rol) {
  *    0 : no hay nada que actualizar
  *    1 : hay campos que actualizar y no hay errores
  */
-function update_usuario($usuario, $nombre, $password, $email, $rol) {
+function update_usuario($usuario, $nombre, $password, $email) {
 
     $mysqli = connect_db();
 
@@ -155,15 +155,8 @@ function update_usuario($usuario, $nombre, $password, $email, $rol) {
 
         if ($password != "********") {
 
-            if (strlen($password) > 4) {
-
-                $hash = password_hash($password, PASSWORD_DEFAULT);
-                $update = 1;
-            }
-            else {
-                alert("Contraseña demasiado corta.");
-                $update = -1;
-            }
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $update = 1;
         }
         else{
             $hash = $usuario_db['password'];
@@ -184,8 +177,8 @@ function update_usuario($usuario, $nombre, $password, $email, $rol) {
 
     if ($update > 0) {
 
-        $stmt_update_usuario = $mysqli->prepare("UPDATE usuarios SET nombre=?, password=?, email=?, rol=? WHERE id=?;");
-        $stmt_update_usuario->bind_param('ssssi', $nombre, $hash, $email, $rol, $usuario_db['id']);
+        $stmt_update_usuario = $mysqli->prepare("UPDATE usuarios SET nombre=?, password=?, email=? WHERE id=?;");
+        $stmt_update_usuario->bind_param('sssi', $nombre, $hash, $email, $usuario_db['id']);
         $stmt_update_usuario->execute();
 
         alert("Usuario actualizado con éxito.");

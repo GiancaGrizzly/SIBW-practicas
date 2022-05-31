@@ -12,7 +12,7 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (update_usuario($_SESSION['nombre'], $_POST['nombre'], $_POST['password'], $_POST['email'], $_POST['rol'])) {
+    if (update_usuario($_SESSION['nombre'], $_POST['nombre'], $_POST['password'], $_POST['email'])) {
 
         $_SESSION['nombre'] = $_POST['nombre'];
     }
