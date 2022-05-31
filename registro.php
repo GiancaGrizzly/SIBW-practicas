@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $email = $_POST['email'];
 
-    if (check_if_not_exists('nombre', $nombre) && check_if_not_exists('email', $email)) {
+    if (!exist('nombre', $nombre) && !exist('email', $email)) {
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
 

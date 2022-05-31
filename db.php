@@ -120,6 +120,81 @@ function insert_usuario($nombre, $hash, $email, $rol) {
     $stmt_insert_usuario->execute();
 }
 /*
+ * Actualiza los datos de un usuario
+ * Estados update:
+ *   -1 : error, no actualizar
+ *    0 : no hay nada que actualizar
+ *    1 : hay campos que actualizar y no hay errores
+ */
+function update_usuario($usuario, $nombre, $password, $email, $rol) {
+
+    $mysqli = connect_db();
+
+    $stmt_get_usuario = $mysqli->prepare("SELECT * FROM usuarios WHERE nombre = ?");
+    $stmt_get_usuario->bind_param('s', $usuario);
+    $stmt_get_usuario->execute();
+
+    $query_usuario = $stmt_get_usuario->get_result();
+    $usuario_db = $query_usuario->fetch_assoc();
+
+    $update = 0;
+
+    if ($usuario != $nombre) {
+
+        if (!exist('nombre', $nombre)) {
+
+            $update = 1;
+        }
+        else {
+            alert("Ya existe un usuario con ese nombre.");
+            $update = -1;
+        }
+    }
+
+    if ($update > -1) {
+
+        if ($password != "********") {
+
+            if (strlen($password) > 4) {
+
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $update = 1;
+            }
+            else {
+                alert("Contraseña demasiado corta.");
+                $update = -1;
+            }
+        }
+        else{
+            $hash = $usuario_db['password'];
+        }
+    }
+
+    if ($update > -1 && $usuario_db['email'] != $email) {
+
+        if (!exist('email', $email)) {
+
+            $update = 1;
+        }
+        else {
+            alert("Ya existe un usuario con ese correo electrónico.");
+            $update = -1;
+        }
+    }
+
+    if ($update > 0) {
+
+        $stmt_update_usuario = $mysqli->prepare("UPDATE usuarios SET nombre=?, password=?, email=?, rol=? WHERE id=?;");
+        $stmt_update_usuario->bind_param('ssssi', $nombre, $hash, $email, $rol, $usuario_db['id']);
+        $stmt_update_usuario->execute();
+
+        alert("Usuario actualizado con éxito.");
+
+        return true;
+    }
+    else return false;
+}
+/*
  * Comprueba login
  */
 function check_login($nombre, $password) {
@@ -138,7 +213,7 @@ function check_login($nombre, $password) {
 /*
  * Comprueba si existe un usuario con el campo $field igual a $value
  */
-function check_if_not_exists($field, $value) {
+function exist($field, $value) {
 
     $mysqli = connect_db();
 
@@ -150,9 +225,9 @@ function check_if_not_exists($field, $value) {
 
     if ($query_check->num_rows > 0) {
 
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 /*
  * Devuelve un array con todos los comentarios
