@@ -3,6 +3,7 @@
 
 {% block include %}
 
+<link rel="stylesheet" href="static/css/producto.css" xmlns="http://www.w3.org/1999/html">
 <link rel="stylesheet" href="static/css/producto_editar.css">
 
 {% endblock %}
@@ -20,19 +21,49 @@ Editar producto
 <!-- CONTAINER-MAIN -->
 <main class="main-usuario">
 
-    <form class="form-usuario" action="producto_editar.php" method="post">
+    {% for e in errores %}
 
-        <label for="nombre"><b>Nombre</b></label>
-        <input type="text" name="nombre" value="{{ fruta.nombre }}" required>
+    <p style="color: red"> {{ e }} </p>
 
-        <label for="marca"><b>Marca</b></label>
-        <input type="text" name="marca" value="{{ fruta.marca }}" required>
+    {% endfor %}
 
-        <label for="precio"><b>Precio</b></label>
-        <input type="text" name="precio" value="{{ fruta.precio }}" required>
+    <form class="form-usuario" action="producto_editar.php" method="post" enctype="multipart/form-data">
+
+        <div class="container-nmp-imagenes">
+            <section class="container-nombre-marca-precio">
+
+                <label for="nombre"><b>Nombre</b></label>
+                <input type="text" name="nombre" value="{{ fruta.nombre }}" required>
+
+                <label for="marca"><b>Marca</b></label>
+                <input type="text" name="marca" value="{{ fruta.marca }}" required>
+
+                <label for="precio"><b>Precio</b></label>
+                <input type="text" name="precio" value="{{ fruta.precio }}" required>
+
+                <label for="descripcion"><b>Descripcion</b></label>
+                <textarea name="descripcion" rows="10" required>{{ fruta.descripcion }}</textarea>
+
+            </section>
+
+            <section class="imagenes-producto">
+                <figure>
+                    <img src="{{ fruta.imagenes.imagen1.path }}"/>
+                    <figcaption>Imagen 1</figcaption>
+                    <input type="file" name="imagen1"/><br>
+                </figure>
+                <figure>
+                    <img src="{{ fruta.imagenes.imagen2.path }}"/>
+                    <figcaption>Imagen 2</figcaption>
+                    <input type="file" name="imagen2"/><br>
+
+                </figure>
+            </section>
+        </div>
 
         <button type="submit" class="boton-gris" name="submit-update-producto">Guardar cambios</button>
         <button type="submit" class="boton-gris" name="submit-delete-producto">Borrar producto</button>
+        <button type="button" class="boton-gris"><a href="index.php">Cancelar</a></button>
 
     </form>
 

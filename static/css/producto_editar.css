@@ -2,6 +2,30 @@
 /* --------------- MAIN --------------- */
 /* ------------------------------------ */
 
+.form-usuario {
+    width: 100%;
+}
+
+.container-nmp-imagenes {
+    display: flex;
+}
+
+.container-nombre-marca-precio {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagenes-producto {
+    width: 50%;
+}
+
+.imagenes-producto figure {
+    display: inline-block;
+    margin: 1vw;
+}
+
 .form-usuario button {
+    width: 25%;
     align-self: center;
 }

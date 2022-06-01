@@ -42,10 +42,14 @@ Producto
     
     <!-- CONTAINER-IMAGENES -->
     <section class="imagenes-producto">
-        <figure><img src="{{ fruta.imagen1 }}"/></figure>
-        <figcaption>Imagen 1 sobre {{ fruta['marca'] }}</figcaption>
-        <figure><img src="{{ fruta.imagen2 }}"/></figure>
-        <figcaption>Imagen 2 sobre {{ fruta['marca'] }}</figcaption>
+        <figure>
+            <img src="{{ fruta.imagenes.imagen1.path }}"/>
+            <figcaption>Imagen 1 de {{ fruta.marca }}</figcaption>
+        </figure>
+        <figure>
+            <img src="{{ fruta.imagenes.imagen2.path }}"/>
+            <figcaption>Imagen 2 de {{ fruta.marca }}</figcaption>
+        </figure>
     </section>
 
     <!-- CONTAINER-DESCRIPCION-PRODUCTO -->

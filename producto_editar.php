@@ -19,17 +19,20 @@ if (isset($_SESSION['nombre'])) {
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (isset($_POST['submit-add-comentario'])) {
+    if (isset($_POST['submit-update-producto'])) {
 
-        insert_comentario($_SESSION['fruta'], $_SESSION['nombre'], $_POST['insertComentario']);
+        update_producto($variablesTwig['fruta'], $_POST['nombre'], $_POST['marca'], $_POST['precio'], $_POST['descripcion'], $_FILES['imagen1'], $_FILES['imagen2']);
+
+        $variablesTwig['fruta'] = get_fruta($_SESSION['fruta']);
     }
-    elseif (isset($_POST['submit-update-comentario'])) {
+    elseif (isset($_POST['submit-delete-producto'])) {
 
-        update_comentario($_POST['idComentario'], $_POST['updateComentario']);
-    }
-    elseif (isset($_POST['submit-delete-comentario'])) {
+        delete_producto($_SESSION['fruta']);
 
-        delete_comentario($_POST['idComentario']);
+        if (!headers_sent()) {
+
+            header("Location: index.php");
+        }
     }
 }
 
