@@ -55,13 +55,14 @@ function get_fruta($idFruta) {
         $stmt_get_imagen->execute();
 
         $query_imagen = $stmt_get_imagen->get_result();
-        $imagen = $query_imagen->fetch_assoc();
+        $imagen1 = $query_imagen->fetch_assoc();
+        $imagen2 = $query_imagen->fetch_assoc();
 
-        $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "path"=>$imagen['path']);
+        $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "imagen1"=>$imagen1['path'], "imagen2"=>$imagen2['path']);
     }
     else {
 
-        $fruta = array("id"=>"-1", "nombre"=>"nombredefecto", "marca"=>"marcadefecto", "precio"=>0, "descripcion"=>"descripciondefecto", "path"=>"static/images/granada.jpeg");
+        $fruta = array("id"=>"-1", "nombre"=>"nombredefecto", "marca"=>"marcadefecto", "precio"=>0, "descripcion"=>"descripciondefecto", "imagen1"=>"static/images/frutas-castilla.jpeg", "imagen2"=>"static/images/frutas-castilla.jpeg");
     }
 
     return $fruta;

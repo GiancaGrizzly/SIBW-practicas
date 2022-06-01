@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block include %}
+
+<link rel="stylesheet" href="static/css/producto_editar.css">
+
+{% endblock %}
+
+
+{% block titulo %}
+
+Editar producto
+
+{% endblock %}
+
+
+{% block main %}
+
+<!-- CONTAINER-MAIN -->
+<main class="main-usuario">
+
+    <form class="form-usuario" action="producto_editar.php" method="post">
+
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" name="nombre" value="{{ fruta.nombre }}" required>
+
+        <label for="marca"><b>Marca</b></label>
+        <input type="text" name="marca" value="{{ fruta.marca }}" required>
+
+        <label for="precio"><b>Precio</b></label>
+        <input type="text" name="precio" value="{{ fruta.precio }}" required>
+
+        <button type="submit" class="boton-gris" name="submit-update-producto">Guardar cambios</button>
+        <button type="submit" class="boton-gris" name="submit-delete-producto">Borrar producto</button>
+
+    </form>
+
+</main>
+
+{% endblock %}

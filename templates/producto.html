@@ -26,11 +26,11 @@ Producto
 
         <!-- CONTAINER-NOMBRE-MARCA-PRECIO -->
         <div class="container-nombre-marca-precio">
-            <h1>{{ fruta['nombre'] }}</h1>
+            <h1>{{ fruta.nombre }}</h1>
 
-            <h2>{{ fruta['marca'] }}</h2>
+            <h2>{{ fruta.marca }}</h2>
 
-            <h3>{{ fruta['precio'] }} &euro; -- <a href="producto_imprimir.php?fruta={{ fruta['id'] }}">Imprimir</a></h3>
+            <h3>{{ fruta.precio }} &euro; -- <a href="producto_imprimir.php?fruta={{ fruta['id'] }}">Imprimir</a></h3>
         </div>
 
         {% block imprimirlogotipo %}
@@ -42,16 +42,16 @@ Producto
     
     <!-- CONTAINER-IMAGENES -->
     <section class="imagenes-producto">
-        <figure><img src="{{ fruta['path'] }}"/></figure>
-        <figcaption>Foto 1 sobre {{ fruta['marca'] }}</figcaption>
-        <figure><img src="{{ fruta['path'] }}"/></figure>
-        <figcaption>Foto 2 sobre {{ fruta['marca'] }}</figcaption>
+        <figure><img src="{{ fruta.imagen1 }}"/></figure>
+        <figcaption>Imagen 1 sobre {{ fruta['marca'] }}</figcaption>
+        <figure><img src="{{ fruta.imagen2 }}"/></figure>
+        <figcaption>Imagen 2 sobre {{ fruta['marca'] }}</figcaption>
     </section>
 
     <!-- CONTAINER-DESCRIPCION-PRODUCTO -->
     <p class="descripcion">
         <br><br><br><br><br><br><br><br>
-        {{ fruta['descripcion'] }}
+        {{ fruta.descripcion }}
         <br><br>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -68,6 +68,13 @@ Producto
         nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
         quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
     </p>
+
+    <!--    BOTON-EDITAR-PRODUCTO-->
+    {% if usuario.rol == "Gestor" %}
+
+    <button type="button" class="boton-gris"><a href="producto_editar.php">Editar producto</a></button>
+
+    {% endif %}
 
     <!-- BOTON-FORMULARIO -->
 

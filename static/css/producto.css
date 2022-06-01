@@ -9,7 +9,7 @@
 }
 
 .container-nombre-marca-precio {
-    /* border: 1px solid red; */
+     /*border: 1px solid red;*/
     width: 58%;
     float: left;
     padding-left: 1vw;
@@ -48,6 +48,7 @@ h3, h4 {
 }
 
 .descripcion {
+    /*border: 1px solid red;*/
     margin: 2vw;
     font-size: 1.2vw;
 }
