@@ -1,18 +1,16 @@
 
-function openForm()
-{
-    document.getElementById("id-container-comentarios").style.display = "block";
-    document.getElementById("id-boton-comentarios").style.display = "none";
+function openForm(idForm) {
+
+    document.getElementById(idForm).style.display = "block";
 }
 
-function closeForm()
-{
-    document.getElementById("id-container-comentarios").style.display = "none";
-    document.getElementById("id-boton-comentarios").style.display = "block";
+function closeForm(idForm) {
+
+    document.getElementById(idForm).style.display = "none";
 }
 
-function addComment(nombre, comentario)
-{
+function addComment(nombre, comentario) {
+
     var fecha = new Date();
     nombre = nombre + ". " + fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear() + ". " + fecha.getHours() + ":" + fecha.getMinutes();
     document.getElementById("id-nombre-fecha").style.fontWeight = "bold";
@@ -32,15 +30,15 @@ function addComment(nombre, comentario)
  *   le siguen 2, 3 o 4 letras \w{2,3,4}
  *   además, puede haber varios dominios (\.\w{2,3,4})+
  */
-function comprobarEmail(email)
-{
+function comprobarEmail(email) {
+
     if (!/^\w+((\.|-)\w+)*@\w+(\.\w{2,4})+$/.test(email)) {
         alert("Dirección de correo electrónico inválida");
         document.getElementById("id-email").value = "";
     }
 }
 
-// Palabras censuradas y asteriscos correspondientes
+// Palabras censuradas
 const censuradas = [
     "tonto",
     "tonta",
@@ -54,20 +52,18 @@ const censuradas = [
     "caraculo"
 ];
 
-function censurarComentario(comentario)
-{
+function censurarComentario(comentario, formulario, textArea) {
+
     for (var censurada of censuradas) {
         comentario = comentario.replace(censurada,"*".repeat(censurada.length));
     }
 
-    // document.getElementById("id-comentario").value = comentario;
-    
-    document.forms["formulario"]["comentario"].value = comentario;
+    document.forms[formulario][textArea].value = comentario;
 }
 
-function createListComentarios(comentarios) {
+function createListComentarios(comentarios, rol_usuario) {
 
-    var containercomentarios = document.getElementById('lista-comentarios');
+    var containerComentarios = document.getElementById('lista-comentarios');
 
     var ncomentarios = comentarios.length;
     for (var i=0; i<ncomentarios; i++) {
@@ -75,15 +71,38 @@ function createListComentarios(comentarios) {
         var liItem = document.createElement('li');
         liItem.className = 'li-comentarios';
 
-        var nombrefecha = document.createElement('span');
-        nombrefecha.innerHTML = comentarios[i].usuario + ". " + comentarios[i].fecha;
+        var nombrefecha = document.createElement('p');
+        nombrefecha.style.fontWeight = 'bold';
+        if (comentarios[i].editado) {
+
+            nombrefecha.innerHTML = comentarios[i].usuario + ". " + comentarios[i].fecha + " - [Editado]";
+        }
+        else {
+            nombrefecha.innerHTML = comentarios[i].usuario + ". " + comentarios[i].fecha;
+        }
+
+        if (rol_usuario == "Moderador") {
+
+            var editButton = document.createElement('button');
+            editButton.id = comentarios[i].id;
+            editButton.type = 'button';
+            editButton.onclick = function () {
+                openForm('id-formulario-update');
+                document.forms["formulario-update"]["updateComentario"].value = document.getElementById("c" + this.id).innerHTML;
+                document.getElementsByName("idComentario")[0].value = this.id;
+            }
+            editButton.innerHTML = "Editar";
+
+            nombrefecha.appendChild(editButton);
+        }
 
         var comentario = document.createElement('p');
+        comentario.id = "c" + comentarios[i].id;
         comentario.innerHTML = comentarios[i].comentario;
 
         liItem.appendChild(nombrefecha);
         liItem.appendChild(comentario);
 
-        containercomentarios.appendChild(liItem);
+        containerComentarios.appendChild(liItem);
     }
 }

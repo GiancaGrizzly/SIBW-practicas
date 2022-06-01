@@ -73,7 +73,7 @@ Producto
 
     <!-- BOTON-FORMULARIO -->
 
-    <button class="boton-comentarios" id="id-boton-comentarios" onclick="openForm()">Deja tu comentario</button>
+    <button class="boton-comentarios" id="id-boton-comentarios" onclick="openForm('id-container-comentarios')">Deja tu comentario</button>
 
     <section class="container-comentarios" id="id-container-comentarios">
 
@@ -84,23 +84,37 @@ Producto
 
             var array_comentarios = JSON.parse('{{ comentarios | json_encode | raw }}');
 
-            createListComentarios(array_comentarios);
+            var rol_usuario = "{{ usuario.rol }}";
+
+            createListComentarios(array_comentarios, rol_usuario);
 
         </script>
         </ul>
 
         {% if usuario %}
-        <form id="id-formulario-comentarios" name="formulario" action="producto.php" method="post">
+        <form id="id-formulario-insert" name="formulario-insert" action="producto.php" method="post">
 
             <p><b>Deja tu comentario</b></p>
 
-            <textarea name="comentarioText" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(comentarioText.value)" required></textarea>
+            <textarea name="insertComentario" rows="10" placeholder="Escribe aquí tu comentario" oninput="censurarComentario(insertComentario.value, 'formulario-insert', 'insertComentario')" required></textarea>
 
-            <button type="submit" class="boton-comentarios">Enviar comentario</button>
-            <button type="reset" class="boton-comentarios" onclick="closeForm()">Cerrar</button>
+            <button type="submit" class="boton-comentarios" name="submit-add-comentario">Enviar comentario</button>
+            <button type="reset" class="boton-comentarios" onclick="closeForm('id-container-comentarios')">Cerrar</button>
 
         </form>
         {% endif %}
+
+        <form id="id-formulario-update" name="formulario-update" action="producto.php" method="post">
+
+            <input type="text" name="idComentario">
+
+            <textarea name="updateComentario" rows="10" oninput="censurarComentario(updateComentario.value, 'formulario-update', 'updateComentario')" required></textarea>
+
+            <button type="submit" class="boton-gris" name="submit-update-comentario">Guardar cambios</button>
+            <button type="submit" class="boton-gris" name="submit-delete-comentario">Borrar</button>
+            <button type="reset" class="boton-gris" onclick="closeForm('id-formulario-update')">Cerrar</button>
+
+        </form>
 
     </section>
 

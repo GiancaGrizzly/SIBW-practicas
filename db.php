@@ -229,7 +229,7 @@ function get_all_comentarios($idFruta) {
 
     $mysqli = connect_db();
 
-    $stmt_get_comentarios = $mysqli->prepare("SELECT usuario, comentario, fecha FROM comentarios WHERE fruta=?");
+    $stmt_get_comentarios = $mysqli->prepare("SELECT id, usuario, comentario, fecha, editado FROM comentarios WHERE fruta=?");
     $stmt_get_comentarios->bind_param('i', $idFruta);
     $stmt_get_comentarios->execute();
 
@@ -239,7 +239,7 @@ function get_all_comentarios($idFruta) {
 
     while ($row = $query_comentarios->fetch_assoc()) {
 
-        array_push($comentarios, ["usuario"=>$row['usuario'], "comentario"=>$row['comentario'], "fecha"=>$row['fecha']]);
+        array_push($comentarios, ["id"=>$row['id'], "usuario"=>$row['usuario'], "comentario"=>$row['comentario'], "fecha"=>$row['fecha'], "editado"=>$row['editado']]);
     }
 
     return $comentarios;
@@ -257,6 +257,19 @@ function insert_comentario($fruta, $usuario, $comentario) {
     $stmt_insert_usuario = $mysqli->prepare("INSERT INTO comentarios (fruta, usuario, comentario, fecha) VALUES (?, ?, ?, ?);");
     $stmt_insert_usuario->bind_param('isss', $fruta, $usuario, $comentario, $fecha);
     $stmt_insert_usuario->execute();
+}
+/*
+ * Registra un nuevo comentario en la fruta $fruta hecho por $usuario
+ */
+function update_comentario($idComentario, $comentario) {
+
+    $mysqli = connect_db();
+
+    $stmt_update_comentario = $mysqli->prepare("UPDATE comentarios SET comentario=?, editado=true WHERE id=?;");
+    $stmt_update_comentario->bind_param('si', $comentario, $idComentario);
+    $stmt_update_comentario->execute();
+
+    alert("Comentario actualizado con éxito.");
 }
 
 ?>
