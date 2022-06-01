@@ -15,7 +15,7 @@ function createGridFrutas(frutas) {
         a1.href = "producto.php?fruta=" + frutas[i].id;
 
         var img = document.createElement('img');
-        img.src = frutas[i].path;
+        img.src = frutas[i].ruta;
 
         a1.appendChild(img);
         figure.appendChild(a1);

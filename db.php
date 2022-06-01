@@ -61,7 +61,6 @@ function get_fruta($idFruta) {
         $imagenes = array("imagen1"=>$imagen1, "imagen2"=>$imagen2);
 
         $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "imagenes"=>$imagenes);
-//        $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "imagen1"=>$imagen1['path'], "imagen2"=>$imagen2['path']);
     }
     else {
 
@@ -84,10 +83,10 @@ function get_all_frutas() {
 
     while ($row = $myquery->fetch_assoc()) {
 
-        $query_imagen = $mysqli->query("SELECT path FROM imagenes WHERE fruta=" . $row['id']);
+        $query_imagen = $mysqli->query("SELECT ruta FROM imagenes WHERE fruta=" . $row['id']);
         $imagen = $query_imagen->fetch_assoc();
 
-        array_push($frutas, ["id"=>$row['id'], "marca"=>$row['marca'], "path"=>$imagen['path']]);
+        array_push($frutas, ["id"=>$row['id'], "marca"=>$row['marca'], "ruta"=>$imagen['ruta']]);
     }
 
     return $frutas;
@@ -325,8 +324,24 @@ function update_producto($fruta, $nombre, $marca, $precio, $descripcion, $imagen
 
     if ($imagen1['name'] != "") {
 
-        $stmt_update_imagen = $mysqli->prepare("UPDATE imagenes SET path WHERE id=?;");
-        $stmt_update_imagen->bind_param('ssdsi', $nombre, $marca, $precio, $descripcion, $fruta['id']);
+        $errores = check_error_imagen($imagen1);
+        if (!empty($errores)) {
+
+            return $errores;
+        }
+
+        update_imagen($mysqli, $fruta['imagenes']['imagen1']['id'], $imagen1);
+    }
+
+    if ($imagen2['name'] != "") {
+
+        $errores = check_error_imagen($imagen2);
+        if (!empty($errores)) {
+
+            return $errores;
+        }
+
+        update_imagen($mysqli, $fruta['imagenes']['imagen2']['id'], $imagen2);
     }
 
     $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=? WHERE id=?;");
@@ -348,6 +363,44 @@ function delete_producto($idProducto) {
     $stmt_update_comentario->execute();
 
     alert("Producto eliminado con éxito.");
+}
+
+/*
+ * Comprueba que no haya errores con la imagen subida
+ */
+$extensions = array("jpeg", "jpg", "png");
+function check_error_imagen($imagen) {
+
+    global $extensions;
+    $errores = array();
+    $file_ext = strtolower(end(explode('.', $imagen['name'])));
+    if (in_array($file_ext, $extensions) === false) {
+
+        $errores[] = "Extension no permitida --> solo JPEG o PNG";
+    }
+
+    if ($imagen['size'] > 2097152) {	// 2MB
+
+        $errores[] = "Tamaño del archivo demasiado grande";
+    }
+
+    return $errores;
+}
+
+/*
+ * Actualiza la imagen con id $idImagen
+ */
+function update_imagen($mysqli, $idImagen, $imagen) {
+
+    $file_path = "static/images/" . $imagen['name'];
+    if (!file_exists($file_path)) {
+
+        move_uploaded_file($imagen['tmp_name'], $file_path);
+    }
+
+    $stmt_update_imagen = $mysqli->prepare("UPDATE imagenes SET ruta=? WHERE id=?;");
+    $stmt_update_imagen->bind_param('si', $file_path, $idImagen);
+    $stmt_update_imagen->execute();
 }
 
 ?>

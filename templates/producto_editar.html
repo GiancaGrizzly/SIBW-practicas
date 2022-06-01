@@ -21,13 +21,13 @@ Editar producto
 <!-- CONTAINER-MAIN -->
 <main class="main-usuario">
 
-    {% for e in errores %}
-
-    <p style="color: red"> {{ e }} </p>
-
-    {% endfor %}
-
     <form class="form-usuario" action="producto_editar.php" method="post" enctype="multipart/form-data">
+
+        {% for e in errores %}
+
+        <p style="color: red"> {{ e }} </p>
+
+        {% endfor %}
 
         <div class="container-nmp-imagenes">
             <section class="container-nombre-marca-precio">
@@ -48,12 +48,12 @@ Editar producto
 
             <section class="imagenes-producto">
                 <figure>
-                    <img src="{{ fruta.imagenes.imagen1.path }}"/>
+                    <img src="{{ fruta.imagenes.imagen1.ruta }}"/>
                     <figcaption>Imagen 1</figcaption>
                     <input type="file" name="imagen1"/><br>
                 </figure>
                 <figure>
-                    <img src="{{ fruta.imagenes.imagen2.path }}"/>
+                    <img src="{{ fruta.imagenes.imagen2.ruta }}"/>
                     <figcaption>Imagen 2</figcaption>
                     <input type="file" name="imagen2"/><br>
 

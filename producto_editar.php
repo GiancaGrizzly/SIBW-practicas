@@ -21,9 +21,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['submit-update-producto'])) {
 
-        update_producto($variablesTwig['fruta'], $_POST['nombre'], $_POST['marca'], $_POST['precio'], $_POST['descripcion'], $_FILES['imagen1'], $_FILES['imagen2']);
+        $errores = update_producto($variablesTwig['fruta'], $_POST['nombre'], $_POST['marca'], $_POST['precio'], $_POST['descripcion'], $_FILES['imagen1'], $_FILES['imagen2']);
 
-        $variablesTwig['fruta'] = get_fruta($_SESSION['fruta']);
+        if (empty($errores)) {
+
+            $variablesTwig['fruta'] = get_fruta($_SESSION['fruta']);
+        }
+        else {
+            $variablesTwig['errores'] = $errores;
+        }
     }
     elseif (isset($_POST['submit-delete-producto'])) {
 
