@@ -14,6 +14,7 @@ function alert($msg) {
 
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
+
 /*
  * Se conecta a la base de datos en caso de no haberse conectado ya
  */
@@ -31,6 +32,7 @@ function connect_db() {
     }
     return $mysqli;
 }
+
 /*
  * Devuelve la fruta con id $idFruta
  */
@@ -64,6 +66,7 @@ function get_fruta($idFruta) {
 
     return $fruta;
 }
+
 /*
  * Devuelve un array con todas las frutas
  */
@@ -85,6 +88,7 @@ function get_all_frutas() {
 
     return $frutas;
 }
+
 /*
  * Devuelve el usuario con nombre $nombre
  */
@@ -108,6 +112,7 @@ function get_usuario($nombre) {
     }
     else return 0;
 }
+
 /*
  * Registra un nuevo usuario en la base de datos
  */
@@ -119,6 +124,7 @@ function insert_usuario($nombre, $hash, $email, $rol) {
     $stmt_insert_usuario->bind_param('ssss', $nombre, $hash, $email, $rol);
     $stmt_insert_usuario->execute();
 }
+
 /*
  * Actualiza los datos de un usuario
  * Estados update:
@@ -187,6 +193,7 @@ function update_usuario($usuario, $nombre, $password, $email) {
     }
     else return false;
 }
+
 /*
  * Comprueba login
  */
@@ -203,6 +210,7 @@ function check_login($nombre, $password) {
     }
     return false;
 }
+
 /*
  * Comprueba si existe un usuario con el campo $field igual a $value
  */
@@ -222,6 +230,7 @@ function exist($field, $value) {
     }
     return false;
 }
+
 /*
  * Devuelve un array con todos los comentarios
  */
@@ -244,6 +253,7 @@ function get_all_comentarios($idFruta) {
 
     return $comentarios;
 }
+
 /*
  * Registra un nuevo comentario en la fruta $fruta hecho por $usuario
  */
@@ -258,8 +268,9 @@ function insert_comentario($fruta, $usuario, $comentario) {
     $stmt_insert_usuario->bind_param('isss', $fruta, $usuario, $comentario, $fecha);
     $stmt_insert_usuario->execute();
 }
+
 /*
- * Registra un nuevo comentario en la fruta $fruta hecho por $usuario
+ * Actualiza el comentario con id $idComentario
  */
 function update_comentario($idComentario, $comentario) {
 
@@ -270,6 +281,20 @@ function update_comentario($idComentario, $comentario) {
     $stmt_update_comentario->execute();
 
     alert("Comentario actualizado con éxito.");
+}
+
+/*
+ * Elimina el comentario con id $idComentario
+ */
+function delete_comentario($idComentario) {
+
+    $mysqli = connect_db();
+
+    $stmt_update_comentario = $mysqli->prepare("DELETE FROM comentarios WHERE id=?;");
+    $stmt_update_comentario->bind_param('i', $idComentario);
+    $stmt_update_comentario->execute();
+
+    alert("Comentario eliminado con éxito.");
 }
 
 ?>

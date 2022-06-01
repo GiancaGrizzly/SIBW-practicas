@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     elseif (isset($_POST['submit-delete-comentario'])) {
 
-        delete_comentario();
+        delete_comentario($_POST['idComentario']);
     }
 }
 
