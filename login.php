@@ -16,17 +16,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
 
         $_SESSION['nombre'] = $nombre;
-    }
-    else {
-        alert("Error. Usuario o contraseña fallidos.");
-    }
 
-    if (!headers_sent()) {
-
-        header("Location: index.php");	// redirecciona a la pagina ***
+        echo (json_encode("success"));
     }
+    else echo (json_encode("fail"));
 }
-
-echo $twig->render('login.html', []);
+else {
+    echo $twig->render('login.html', []);
+}
 
 ?>

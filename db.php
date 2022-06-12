@@ -146,21 +146,25 @@ function update_usuario($usuario, $nombre, $password, $email) {
     $query_usuario = $stmt_get_usuario->get_result();
     $usuario_db = $query_usuario->fetch_assoc();
 
-    $update = 0;
+    $errores = array();
 
     if ($usuario != $nombre) {
 
-        if (!exist('nombre', $nombre)) {
+        if (exist('nombre', $nombre)) {
 
-            $update = 1;
-        }
-        else {
-            alert("Ya existe un usuario con ese nombre.");
-            $update = -1;
+            $errores[] = "Ya existe un usuario con ese nombre.";
         }
     }
 
-    if ($update > -1) {
+    if ($usuario_db['email'] != $email) {
+
+        if (exist('email', $email)) {
+
+            $errores[] = "Ya existe un usuario con ese correo electrónico.";
+        }
+    }
+
+    if (count($errores) == 0) {
 
         if ($password != "********") {
 
@@ -170,31 +174,13 @@ function update_usuario($usuario, $nombre, $password, $email) {
         else{
             $hash = $usuario_db['password'];
         }
-    }
-
-    if ($update > -1 && $usuario_db['email'] != $email) {
-
-        if (!exist('email', $email)) {
-
-            $update = 1;
-        }
-        else {
-            alert("Ya existe un usuario con ese correo electrónico.");
-            $update = -1;
-        }
-    }
-
-    if ($update > 0) {
 
         $stmt_update_usuario = $mysqli->prepare("UPDATE usuarios SET nombre=?, password=?, email=? WHERE id=?;");
         $stmt_update_usuario->bind_param('sssi', $nombre, $hash, $email, $usuario_db['id']);
         $stmt_update_usuario->execute();
-
-        alert("Usuario actualizado con éxito.");
-
-        return true;
     }
-    else return false;
+
+    return $errores;
 }
 
 /*

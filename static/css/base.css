@@ -49,7 +49,7 @@ input[type=text], input[type=email], input[type=password], textarea {
     padding-bottom: 0.5vw;
 }
 
-.main-usuario {
+.main-formularios {
     background-color: var(--green1);
     width: 75%;
     display: flex;
@@ -58,14 +58,14 @@ input[type=text], input[type=email], input[type=password], textarea {
     font-size: 1.5vw;
 }
 
-.form-usuario {
+.form-formularios {
     width: 30%;
     margin-top: 3vw;
     display: flex;
     flex-direction: column;
 }
 
-.form-usuario button {
+.form-formularios button {
     width: 50%;
 }
 

@@ -9,16 +9,6 @@ function closeForm(idForm) {
     document.getElementById(idForm).style.display = "none";
 }
 
-function addComment(nombre, comentario) {
-
-    var fecha = new Date();
-    nombre = nombre + ". " + fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear() + ". " + fecha.getHours() + ":" + fecha.getMinutes();
-    document.getElementById("id-nombre-fecha").style.fontWeight = "bold";
-    document.getElementById("id-nombre-fecha").innerHTML = nombre;
-    document.getElementById("id-comentario").innerHTML = comentario;
-    document.getElementById("id-formulario-comentarios").reset();
-}
-
 /* direccion_email = usuario + @ + servidor + dominio
  * usuario
  *   comienza por al menos una letra o número \w+

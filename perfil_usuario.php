@@ -9,17 +9,22 @@ $twig = new \Twig\Environment($loader);
 $variablesTwig = [];
 
 session_start();
+$variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (update_usuario($_SESSION['nombre'], $_POST['nombre'], $_POST['password'], $_POST['email'])) {
+    $errores = update_usuario($_SESSION['nombre'], $_POST['nombre'], $_POST['password'], $_POST['email']);
+
+    if (count($errores) == 0) {
 
         $_SESSION['nombre'] = $_POST['nombre'];
+
+        echo (json_encode("success"));
     }
+    else echo (json_encode($errores));
 }
-
-$variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
-
-echo $twig->render('perfil_usuario.html', $variablesTwig);
+else {
+    echo $twig->render('perfil_usuario.html', $variablesTwig);
+}
 
 ?>

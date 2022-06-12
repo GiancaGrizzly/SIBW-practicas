@@ -2,7 +2,7 @@
 /* --------------- MAIN --------------- */
 /* ------------------------------------ */
 
-.form-usuario {
+.form-formularios {
     width: 100%;
 }
 
@@ -25,7 +25,7 @@
     margin: 1vw;
 }
 
-.form-usuario button {
+.form-formularios button {
     width: 25%;
     align-self: center;
 }

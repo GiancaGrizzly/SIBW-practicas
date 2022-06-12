@@ -4,6 +4,8 @@
 {% block include %}
 
 <link rel="stylesheet" href="static/css/perfil_usuario.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/perfil_usuario.js"></script>
 
 {% endblock %}
 
@@ -18,20 +20,22 @@ Perfil
 {% block main %}
 
 <!-- CONTAINER-MAIN -->
-<main class="main-usuario">
+<main class="main-formularios">
 
-    <form class="form-usuario" action="perfil_usuario.php" method="post">
+    <form class="form-formularios">
+
+        <ul id="errores"></ul>
 
         <label for="nombre"><b>Nombre</b></label>
-        <input type="text" name="nombre" value="{{ usuario.nombre }}" required>
+        <input type="text" id="nombre" value="{{ usuario.nombre }}" required>
 
         <label for="email"><b>Email</b></label>
-        <input type="email" name="email" value="{{ usuario.email }}" required>
+        <input type="email" id="email" value="{{ usuario.email }}" required>
 
         <label for="password"><b>Password</b></label>
-        <input type="password" name="password" value="********" required>
+        <input type="password" id="password" value="********" required>
 
-        <button class="boton-gris" type="submit">Guardar cambios</button>
+        <button class="boton-gris" type="button" id="IDbotonperfil">Guardar cambios</button>
 
         <button class="boton-gris" type="button"><a href="logout.php">Log out</a></button>
 

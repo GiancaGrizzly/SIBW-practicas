@@ -4,6 +4,8 @@
 {% block include %}
 
 <link rel="stylesheet" href="static/css/login.css" xmlns="http://www.w3.org/1999/html">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/login.js"></script>
 
 {% endblock %}
 
@@ -18,17 +20,17 @@ Login
 {% block main %}
 
 <!-- CONTAINER-MAIN -->
-<main class="main-usuario">
+<main class="main-formularios">
 
-    <form class="form-usuario" action="login.php" method="post">
+    <form class="form-formularios">
 
         <label for="nombre"><b>Nombre</b></label>
-        <input type="text" name="nombre" placeholder="Introduce nombre" required>
+        <input type="text" id="nombre" placeholder="Introduce nombre" required>
 
         <label for="password"><b>Password</b></label>
-        <input type="password" name="password" placeholder="Introduce contraseña" required>
+        <input type="password" id="password" placeholder="Introduce contraseña" required>
 
-        <button class="boton-gris" type="submit">Log in</button>
+        <button class="boton-gris" type="button" id="IDbotonlogin">Log in</button>
 
         <button class="boton-gris" type="button"><a href="registro.php">Registrarse</a></button>
       
