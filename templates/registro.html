@@ -4,6 +4,8 @@
 {% block include %}
 
 <link rel="stylesheet" href="static/css/registro.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/registro.js"></script>
 
 {% endblock %}
 
@@ -20,18 +22,18 @@ Registrarse
 <!-- CONTAINER-MAIN -->
 <main class="main-formularios">
 
-    <form class="form-formularios" action="registro.php" method="post">
+    <form class="form-formularios" id="id-formulario-registro">
 
         <label for="nombre"><b>Nombre</b></label>
-        <input type="text" name="nombre" placeholder="Introduce nombre" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Introduce nombre" required>
 
         <label for="email"><b>Email</b></label>
-        <input type="email" name="email" placeholder="Introduce email" required>
+        <input type="email" id="email" name="email" placeholder="Introduce email" required>
 
         <label for="password"><b>Password</b></label>
-        <input type="password" name="password" placeholder="Introduce contraseña" required>
+        <input type="password" id="password" name="password" placeholder="Introduce contraseña" required>
 
-        <button class="boton-gris" type="submit">Registrarse</button>
+        <button type="button" class="boton-gris" id="IDbotonregistro">Registrarse</button>
 
     </form>
 

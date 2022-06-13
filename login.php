@@ -14,7 +14,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (check_login($nombre, $password)) {
 
         session_start();
-
         $_SESSION['nombre'] = $nombre;
 
         echo (json_encode("success"));

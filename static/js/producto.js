@@ -41,7 +41,6 @@ const censuradas = [
     "puta",
     "caraculo"
 ];
-
 function censurarComentario(comentario, formulario, textArea) {
 
     for (var censurada of censuradas) {

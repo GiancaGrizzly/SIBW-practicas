@@ -19,20 +19,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         insert_usuario($nombre, $hash, $email, "Usuario");
 
         session_start();
-
         $_SESSION['nombre'] = $nombre;
-    }
-    else {
-        alert("Error. Ya existe un usuario con ese nombre o correo.");
-    }
 
-    if (!headers_sent()) {
-
-        header("Location: index.php");
+        echo (json_encode("success"));
     }
-
+    else echo (json_encode("fail"));
 }
-
-echo $twig->render('registro.html', []);
+else echo $twig->render('registro.html', []);
 
 ?>
