@@ -21,11 +21,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['submit-update-producto'])) {
 
-        $errores = update_producto($variablesTwig['fruta'], $_POST['nombre'], $_POST['marca'], $_POST['precio'], $_POST['descripcion'], $_FILES['imagen1'], $_FILES['imagen2']);
+        $errores = update_producto($variablesTwig['fruta'], $_POST['nombre'], $_POST['marca'], $_POST['precio'], $_POST['descripcion'], $_FILES['img1'], $_FILES['img2']);
 
         if (empty($errores)) {
 
             $variablesTwig['fruta'] = get_fruta($_SESSION['fruta']);
+
+            alert("Producto actualizado con éxito.");
         }
         else {
             $variablesTwig['errores'] = $errores;
@@ -41,6 +43,23 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+//    if (empty($errores)) {
+//
+//        echo (json_encode(['status'=>"success", 'fruta'=>$variablesTwig['fruta']]));
+//    }
+//    else echo (json_encode($errores));
+//}
+//elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+//
+//    delete_producto($_SESSION['fruta']);
+//
+//    if (!headers_sent()) {
+//
+//        header("Location: index.php");
+//    }
+//}
+//else echo $twig->render('producto_editar.html', $variablesTwig);
 
 echo $twig->render('producto_editar.html', $variablesTwig);
 

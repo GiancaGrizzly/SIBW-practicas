@@ -5,16 +5,15 @@ $(document).ready(function () {
 
 function check_login() {
 
-    formData = {
-        nombre: $("#nombre").val(),
-        password: $("#password").val(),
-    };
+    var formData = new FormData(document.getElementById("id-formulario-login"));
 
     $.ajax({
         url: "login.php",
         type: "POST",
         data: formData,
         dataType: "json",
+        processData: false,
+        contentType: false,
         success: function (respuesta) {
 
             if (respuesta == "success") {

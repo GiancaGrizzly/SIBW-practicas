@@ -21,8 +21,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     else echo (json_encode("fail"));
 }
-else {
-    echo $twig->render('login.html', []);
-}
+else echo $twig->render('login.html', []);
 
 ?>

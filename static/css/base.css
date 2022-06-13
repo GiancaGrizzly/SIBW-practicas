@@ -69,6 +69,15 @@ input[type=text], input[type=email], input[type=password], textarea {
     width: 50%;
 }
 
+.errores {
+    margin: 1vw;
+}
+
+.errores li {
+    color: red;
+    font-size: 1vw;
+}
+
 /* ------------------------------------ */
 /* ------------- HEADER --------------- */
 /* ------------------------------------ */

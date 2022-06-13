@@ -22,22 +22,21 @@ Perfil
 <!-- CONTAINER-MAIN -->
 <main class="main-formularios">
 
-    <form class="form-formularios">
+    <form class="form-formularios" id="id-formulario-perfil">
 
-        <ul id="errores"></ul>
+        <ul class="errores" id="errores"></ul>
 
         <label for="nombre"><b>Nombre</b></label>
-        <input type="text" id="nombre" value="{{ usuario.nombre }}" required>
+        <input type="text" id="nombre" name="nombre" value="{{ usuario.nombre }}" required>
 
         <label for="email"><b>Email</b></label>
-        <input type="email" id="email" value="{{ usuario.email }}" required>
+        <input type="email" id="email" name="email" value="{{ usuario.email }}" required>
 
         <label for="password"><b>Password</b></label>
-        <input type="password" id="password" value="********" required>
+        <input type="password" id="password" name="password" value="********" required>
 
-        <button class="boton-gris" type="button" id="IDbotonperfil">Guardar cambios</button>
-
-        <button class="boton-gris" type="button"><a href="logout.php">Log out</a></button>
+        <button type="button" class="boton-gris" id="IDbotonperfil">Guardar cambios</button>
+        <button type="button" class="boton-gris"><a href="logout.php">Log out</a></button>
 
     </form>
 

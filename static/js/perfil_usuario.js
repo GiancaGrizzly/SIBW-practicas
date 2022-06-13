@@ -5,25 +5,20 @@ $(document).ready(function () {
 
 function guardar_cambios() {
 
-    formData = {
-        nombre: $("#nombre").val(),
-        email: $("#email").val(),
-        password: $("#password").val(),
-    };
+    var formData = new FormData(document.getElementById("id-formulario-perfil"));
 
     $.ajax({
         url: "perfil_usuario.php",
         type: "POST",
         data: formData,
         dataType: "json",
+        processData: false,
+        contentType: false,
         success: function (respuesta) {
 
             document.getElementById("errores").innerHTML = '';
 
             if (respuesta == "success") {
-
-                $("#nombre").html = respuesta['nombre'];
-                $("#email").html = respuesta['email'];
 
                 alert("Usuario actualizado con éxito.");
             }

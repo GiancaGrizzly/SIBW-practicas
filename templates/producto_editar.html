@@ -3,7 +3,7 @@
 
 {% block include %}
 
-<link rel="stylesheet" href="static/css/producto.css" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="static/css/producto.css">
 <link rel="stylesheet" href="static/css/producto_editar.css">
 
 {% endblock %}
@@ -21,41 +21,43 @@ Editar producto
 <!-- CONTAINER-MAIN -->
 <main class="main-formularios">
 
-    <form class="form-formularios" action="producto_editar.php" method="post" enctype="multipart/form-data">
+    <form class="form-formularios" id="id-formulario-editar" action="producto_editar.php" method="post" enctype="multipart/form-data">
 
+        <ul class="errores" id="errores">
         {% for e in errores %}
 
-        <p style="color: red"> {{ e }} </p>
+        <li>{{ e }}</li>
 
         {% endfor %}
+        </ul>
 
         <div class="container-nmp-imagenes">
             <section class="container-nombre-marca-precio">
 
                 <label for="nombre"><b>Nombre</b></label>
-                <input type="text" name="nombre" value="{{ fruta.nombre }}" required>
+                <input type="text" id="nombre" name="nombre" value="{{ fruta.nombre }}" required>
 
                 <label for="marca"><b>Marca</b></label>
-                <input type="text" name="marca" value="{{ fruta.marca }}" required>
+                <input type="text" id="marca" name="marca" value="{{ fruta.marca }}" required>
 
                 <label for="precio"><b>Precio</b></label>
-                <input type="text" name="precio" value="{{ fruta.precio }}" required>
+                <input type="text" id="precio" name="precio" value="{{ fruta.precio }}" required>
 
                 <label for="descripcion"><b>Descripcion</b></label>
-                <textarea name="descripcion" rows="10" required>{{ fruta.descripcion }}</textarea>
+                <textarea id="descripcion" name="descripcion" rows="10" required>{{ fruta.descripcion }}</textarea>
 
             </section>
 
             <section class="imagenes-producto">
                 <figure>
-                    <img src="{{ fruta.imagenes.imagen1.ruta }}"/>
+                    <img id="imagen1" src="{{ fruta.imagenes.img1.ruta }}"/>
                     <figcaption>Imagen 1</figcaption>
-                    <input type="file" name="imagen1"/><br>
+                    <input type="file" id="img1" name="img1"/><br>
                 </figure>
                 <figure>
-                    <img src="{{ fruta.imagenes.imagen2.ruta }}"/>
+                    <img id="imagen2" src="{{ fruta.imagenes.img2.ruta }}"/>
                     <figcaption>Imagen 2</figcaption>
-                    <input type="file" name="imagen2"/><br>
+                    <input type="file" id="img2" name="img2"/><br>
 
                 </figure>
             </section>

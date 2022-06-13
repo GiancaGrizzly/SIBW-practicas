@@ -58,13 +58,13 @@ function get_fruta($idFruta) {
         $imagen1 = $query_imagen->fetch_assoc();
         $imagen2 = $query_imagen->fetch_assoc();
 
-        $imagenes = array("imagen1"=>$imagen1, "imagen2"=>$imagen2);
+        $imagenes = array("img1"=>$imagen1, "img2"=>$imagen2);
 
         $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "imagenes"=>$imagenes);
     }
     else {
 
-        $fruta = array("id"=>"-1", "nombre"=>"nombredefecto", "marca"=>"marcadefecto", "precio"=>0, "descripcion"=>"descripciondefecto", "imagen1"=>"static/images/frutas-castilla.jpeg", "imagen2"=>"static/images/frutas-castilla.jpeg");
+        $fruta = array("id"=>"-1", "nombre"=>"nombredefecto", "marca"=>"marcadefecto", "precio"=>0, "descripcion"=>"descripciondefecto", "img1"=>"static/images/frutas-castilla.jpeg", "img2"=>"static/images/frutas-castilla.jpeg");
     }
 
     return $fruta;
@@ -130,10 +130,6 @@ function insert_usuario($nombre, $hash, $email, $rol) {
 
 /*
  * Actualiza los datos de un usuario
- * Estados update:
- *   -1 : error, no actualizar
- *    0 : no hay nada que actualizar
- *    1 : hay campos que actualizar y no hay errores
  */
 function update_usuario($usuario, $nombre, $password, $email) {
 
@@ -146,7 +142,7 @@ function update_usuario($usuario, $nombre, $password, $email) {
     $query_usuario = $stmt_get_usuario->get_result();
     $usuario_db = $query_usuario->fetch_assoc();
 
-    $errores = array();
+    $errores = [];
 
     if ($usuario != $nombre) {
 
@@ -164,7 +160,7 @@ function update_usuario($usuario, $nombre, $password, $email) {
         }
     }
 
-    if (count($errores) == 0) {
+    if (empty($errores)) {
 
         if ($password != "********") {
 
@@ -308,33 +304,29 @@ function update_producto($fruta, $nombre, $marca, $precio, $descripcion, $imagen
 
     $mysqli = connect_db();
 
+    $errores = [];
+
     if ($imagen1['name'] != "") {
 
         $errores = check_error_imagen($imagen1);
-        if (!empty($errores)) {
-
-            return $errores;
-        }
-
-        update_imagen($mysqli, $fruta['imagenes']['imagen1']['id'], $imagen1);
     }
 
     if ($imagen2['name'] != "") {
 
         $errores = check_error_imagen($imagen2);
-        if (!empty($errores)) {
-
-            return $errores;
-        }
-
-        update_imagen($mysqli, $fruta['imagenes']['imagen2']['id'], $imagen2);
     }
 
-    $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=? WHERE id=?;");
-    $stmt_update_producto->bind_param('ssdsi', $nombre, $marca, $precio, $descripcion, $fruta['id']);
-    $stmt_update_producto->execute();
+    if (empty($errores)) {
 
-    alert("Producto actualizado con éxito.");
+        $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=? WHERE id=?;");
+        $stmt_update_producto->bind_param('ssdsi', $nombre, $marca, $precio, $descripcion, $fruta['id']);
+        $stmt_update_producto->execute();
+
+        if ($imagen1['name'] != "") update_imagen($mysqli, $fruta['imagenes']['img1']['id'], $imagen1);
+        if ($imagen2['name'] != "") update_imagen($mysqli, $fruta['imagenes']['img2']['id'], $imagen2);
+    }
+
+    return $errores;
 }
 
 /*
@@ -358,7 +350,7 @@ $extensions = array("jpeg", "jpg", "png");
 function check_error_imagen($imagen) {
 
     global $extensions;
-    $errores = array();
+    $errores = [];
     $file_ext = strtolower(end(explode('.', $imagen['name'])));
     if (in_array($file_ext, $extensions) === false) {
 
