@@ -17,6 +17,12 @@ if (isset($_SESSION['nombre'])) {
     $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
 }
 
-echo $twig->render('portada.html', $variablesTwig);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $hits = get_search_frutas($_POST['search']);
+
+    echo (json_encode($hits));
+}
+else echo $twig->render('portada.html', $variablesTwig);
 
 ?>

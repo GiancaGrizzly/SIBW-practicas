@@ -17,7 +17,7 @@ if (isset($_SESSION['nombre'])) {
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $errores = insert_producto($_POST['nombre'], $_POST['marca'], $_POST['precio'], $_POST['descripcion'], $_FILES['img1'], $_FILES['img2']);
+    $errores = insert_producto($_POST['nombre'], $_POST['marca'], $_POST['precio'], $_POST['descripcion'], $_POST['publicado'], $_FILES['img1'], $_FILES['img2']);
 
     if (empty($errores[0]) && empty($errores[1])) {
 

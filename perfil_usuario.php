@@ -15,7 +15,7 @@ if (isset($_SESSION['nombre'])) {
     $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
 }
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errores = update_usuario($_SESSION['nombre'], $_POST['nombre'], $_POST['password'], $_POST['email']);
 

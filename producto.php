@@ -16,6 +16,11 @@ if (isset($_GET['fruta'])) {
 }
 $variablesTwig['fruta'] = get_fruta($_SESSION['fruta']);
 
+if (!$variablesTwig['fruta']['publicado']) {
+
+    echo "<script> window.location.href = 'index.php'; </script>";
+}
+
 if (isset($_SESSION['nombre'])) {
 
     $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);

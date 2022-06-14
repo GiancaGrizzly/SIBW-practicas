@@ -4,6 +4,8 @@
 {% block include %}
 
 <link rel="stylesheet" href="static/css/portada.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/portada.js"></script>
 
 {% endblock %}
 
@@ -18,9 +20,29 @@ Home
 {% block main %}
 
 <!-- CONTAINER-MAIN -->
-<main class="main-portada" id="idmain-portada">
+<main class="main-portada">
 
+    <form id="id-busqueda">
+
+        <label for="search"></label>
+        <input type="search" id="search" name="search">
+
+        <button type="button" class="boton-gris" id="idboton">Buscar</button>
+
+    </form>
+
+    <ul id="hits">
+<!--    {% for fruta in frutas %}-->
+
+<!--    <li><a href="producto.php?fruta={{ fruta.id }}">{{ fruta.marca }}</a></li>-->
+
+<!--    {% endfor %}-->
+    </ul>
+
+    <section class="grid-frutas">
     {% for fruta in frutas  %}
+
+    {% if usuario.rol == "Admin" or usuario.rol == "Gestor" or fruta.publicado %}
 
     <section class="grid-item">
 
@@ -35,7 +57,10 @@ Home
 
     </section>
 
+    {% endif %}
+
     {% endfor %}
+    </section>
 
 </main>
 
