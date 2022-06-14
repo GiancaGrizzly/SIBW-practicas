@@ -16,14 +16,14 @@ if (isset($_GET['fruta'])) {
 }
 $variablesTwig['fruta'] = get_fruta($_SESSION['fruta']);
 
-if (!$variablesTwig['fruta']['publicado']) {
-
-    echo "<script> window.location.href = 'index.php'; </script>";
-}
-
 if (isset($_SESSION['nombre'])) {
 
     $variablesTwig['usuario'] = get_usuario($_SESSION['nombre']);
+}
+
+if (!$variablesTwig['fruta']['publicado'] and $variablesTwig['usuario']{'rol'} != "Admin" and $variablesTwig['usuario']{'rol'} != "Gestor") {
+
+    echo "<script> window.location.href = 'index.php'; </script>";
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
