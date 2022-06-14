@@ -50,48 +50,8 @@ function censurarComentario(comentario, formulario, textArea) {
     document.forms[formulario][textArea].value = comentario;
 }
 
-function createListComentarios(comentarios, rol_usuario) {
-
-    var containerComentarios = document.getElementById('lista-comentarios');
-
-    var ncomentarios = comentarios.length;
-    for (var i=0; i<ncomentarios; i++) {
-
-        var liItem = document.createElement('li');
-        liItem.className = 'li-comentarios';
-
-        var nombrefecha = document.createElement('p');
-        nombrefecha.style.fontWeight = 'bold';
-        if (comentarios[i].editado) {
-
-            nombrefecha.innerHTML = comentarios[i].usuario + ". " + comentarios[i].fecha + " - [Editado]";
-        }
-        else {
-            nombrefecha.innerHTML = comentarios[i].usuario + ". " + comentarios[i].fecha;
-        }
-
-        if (rol_usuario == "Admin" || rol_usuario == "Moderador") {
-
-            var editButton = document.createElement('button');
-            editButton.id = comentarios[i].id;
-            editButton.type = 'button';
-            editButton.onclick = function () {
-                openForm('id-formulario-update');
-                document.forms["formulario-update"]["updateComentario"].value = document.getElementById("c" + this.id).innerHTML;
-                document.getElementsByName("idComentario")[0].value = this.id;
-            }
-            editButton.innerHTML = "Editar";
-
-            nombrefecha.appendChild(editButton);
-        }
-
-        var comentario = document.createElement('p');
-        comentario.id = "c" + comentarios[i].id;
-        comentario.innerHTML = comentarios[i].comentario;
-
-        liItem.appendChild(nombrefecha);
-        liItem.appendChild(comentario);
-
-        containerComentarios.appendChild(liItem);
-    }
+function editbuttonfunction(id) {
+    openForm('id-formulario-update');
+    document.forms["formulario-update"]["updateComentario"].value = document.getElementById("c" + id).innerHTML;
+    document.getElementsByName("idComentario")[0].value = id;
 }

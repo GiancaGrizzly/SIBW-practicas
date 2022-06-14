@@ -89,15 +89,27 @@ Producto
         <h4>Comentarios y opiniones</h4>
 
         <ul id="lista-comentarios">
-        <script type="text/javascript">
 
-            var array_comentarios = JSON.parse('{{ comentarios | json_encode | raw }}');
+            {% for comentario in comentarios %}
 
-            var rol_usuario = "{{ usuario.rol }}";
+            <li class="li-comentarios">
 
-            createListComentarios(array_comentarios, rol_usuario);
+                <p style="font-weight: bold">
+                    {{ comentario.usuario }}. {{ comentario.fecha }}
+                    {% if comentario.editado %}
+                     - [Editado]
+                    {% endif %}
 
-        </script>
+                    {% if usuario.rol == "Admin" or usuario.rol == "Moderador" %}
+                    <button type="button" id="{{ comentario.id }}" onclick="editbuttonfunction({{ comentario.id }})">Editar</button>
+                    {% endif %}
+                </p>
+                <p id="c{{ comentario.id }}">{{ comentario.comentario }}</p>
+
+            </li>
+
+            {% endfor %}
+
         </ul>
 
         {% if usuario %}
