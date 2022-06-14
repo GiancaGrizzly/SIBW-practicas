@@ -4,6 +4,7 @@
 
 .main-portada {
     /* border: 1px solid red; */
+    background-color: white;
     width: 75%;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -17,7 +18,6 @@
 
 .grid-item {
     /*border: 1px solid rgba(0, 0, 0, 0.8);*/
-    background-color: white;
     padding: 1vw;
     text-align: center;
     font-size: 1.5vw;

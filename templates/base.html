@@ -41,6 +41,9 @@
                     <li>Products</li>
                     <li>Contact</li>
                     <li>About</li>
+                    {% if usuario.rol == "Gestor" %}
+                    <li><a href="producto_add.php">Añadir producto</a></li>
+                    {% endif %}
                 </ul>
 
             </div>

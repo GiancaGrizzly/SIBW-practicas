@@ -50,17 +50,7 @@ function get_fruta($idFruta) {
 
         $row = $query_fruta->fetch_assoc();
 
-        $stmt_get_imagen = $mysqli->prepare("SELECT * FROM imagenes WHERE fruta = ?");
-        $stmt_get_imagen->bind_param('i', $idFruta);
-        $stmt_get_imagen->execute();
-
-        $query_imagen = $stmt_get_imagen->get_result();
-        $imagen1 = $query_imagen->fetch_assoc();
-        $imagen2 = $query_imagen->fetch_assoc();
-
-        $imagenes = array("img1"=>$imagen1, "img2"=>$imagen2);
-
-        $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "imagenes"=>$imagenes);
+        $fruta = array("id"=>$row['id'], "nombre"=>$row['nombre'], "marca"=>$row['marca'], "precio"=>$row['precio'], "descripcion"=>$row['descripcion'], "img1"=>$row['img1'], "img2"=>$row['img2']);
     }
     else {
 
@@ -77,16 +67,13 @@ function get_all_frutas() {
 
     $mysqli = connect_db();
 
-    $myquery = $mysqli->query("SELECT id, marca FROM frutas");
+    $myquery = $mysqli->query("SELECT id, marca, img1 FROM frutas");
 
     $frutas = array();
 
     while ($row = $myquery->fetch_assoc()) {
 
-        $query_imagen = $mysqli->query("SELECT ruta FROM imagenes WHERE fruta=" . $row['id']);
-        $imagen = $query_imagen->fetch_assoc();
-
-        array_push($frutas, ["id"=>$row['id'], "marca"=>$row['marca'], "ruta"=>$imagen['ruta']]);
+        array_push($frutas, ["id"=>$row['id'], "marca"=>$row['marca'], "img1"=>$row['img1']]);
     }
 
     return $frutas;
@@ -285,20 +272,41 @@ function delete_comentario($idComentario) {
 /*
  * Añade un nuevo producto al catálogo
  */
-function insert_producto($fruta, $usuario, $comentario) {
+function insert_producto($nombre, $marca, $precio, $descripcion, $imagen1, $imagen2) {
 
     $mysqli = connect_db();
 
-    $fecha = new DateTime();
-    $fecha = $fecha->format('Y-m-d H:i');
+    $errores = [];
 
-    $stmt_insert_usuario = $mysqli->prepare("INSERT INTO comentarios (fruta, usuario, comentario, fecha) VALUES (?, ?, ?, ?);");
-    $stmt_insert_usuario->bind_param('isss', $fruta, $usuario, $comentario, $fecha);
-    $stmt_insert_usuario->execute();
+    if ($imagen1['name'] != "") {
+
+        $errores[] = check_error_imagen($imagen1);
+    }
+    else $errores[] = array("Introduzca imagen 1.");
+
+    if ($imagen2['name'] != "") {
+
+        $errores[] = check_error_imagen($imagen2);
+    }
+    else $errores[] = array("Introduzca imagen 2.");
+
+    if (empty($errores[0]) && empty($errores[1])) {
+
+        $img1_path = "static/images/" . $imagen1['name'];
+        upload_imagen($imagen1, $img1_path);
+        $img2_path = "static/images/" . $imagen2['name'];
+        upload_imagen($imagen2, $img2_path);
+
+        $stmt_insert_fruta = $mysqli->prepare("INSERT INTO frutas (nombre, marca, precio, descripcion, img1, img2) VALUES (?, ?, ?, ?, ?, ?);");
+        $stmt_insert_fruta->bind_param('ssdsss', $nombre, $marca, $precio, $descripcion, $img1_path, $img2_path);
+        $stmt_insert_fruta->execute();
+    }
+
+    return $errores;
 }
 
 /*
- * Actualiza el producto con id $idProducto
+ * Actualiza la fruta $fruta
  */
 function update_producto($fruta, $nombre, $marca, $precio, $descripcion, $imagen1, $imagen2) {
 
@@ -318,12 +326,39 @@ function update_producto($fruta, $nombre, $marca, $precio, $descripcion, $imagen
 
     if (empty($errores)) {
 
-        $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=? WHERE id=?;");
-        $stmt_update_producto->bind_param('ssdsi', $nombre, $marca, $precio, $descripcion, $fruta['id']);
-        $stmt_update_producto->execute();
+        if ($imagen1['name'] != "" && $imagen2['name'] != "") {
 
-        if ($imagen1['name'] != "") update_imagen($mysqli, $fruta['imagenes']['img1']['id'], $imagen1);
-        if ($imagen2['name'] != "") update_imagen($mysqli, $fruta['imagenes']['img2']['id'], $imagen2);
+            $img1_path = "static/images/" . $imagen1['name'];
+            upload_imagen($imagen1, $img1_path);
+            $img2_path = "static/images/" . $imagen2['name'];
+            upload_imagen($imagen2, $img2_path);
+
+            $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=?, img1=?, img2=? WHERE id=?;");
+            $stmt_update_producto->bind_param('ssdsssi', $nombre, $marca, $precio, $descripcion, $img1_path, $img2_path, $fruta['id']);
+        }
+        elseif ($imagen1['name'] != "") {
+
+            $img1_path = "static/images/" . $imagen1['name'];
+            upload_imagen($imagen1, $img1_path);
+
+            $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=?, img1=? WHERE id=?;");
+            $stmt_update_producto->bind_param('ssdssi', $nombre, $marca, $precio, $descripcion, $img1_path, $fruta['id']);
+        }
+        elseif ($imagen2['name'] != "") {
+
+            $img2_path = "static/images/" . $imagen2['name'];
+            upload_imagen($imagen2, $img2_path);
+
+            $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=?, img2=? WHERE id=?;");
+            $stmt_update_producto->bind_param('ssdssi', $nombre, $marca, $precio, $descripcion, $img2_path, $fruta['id']);
+        }
+        else {
+
+            $stmt_update_producto = $mysqli->prepare("UPDATE frutas SET nombre=?, marca=?, precio=?, descripcion=? WHERE id=?;");
+            $stmt_update_producto->bind_param('ssdsi', $nombre, $marca, $precio, $descripcion, $fruta['id']);
+        }
+
+        $stmt_update_producto->execute();
     }
 
     return $errores;
@@ -366,9 +401,9 @@ function check_error_imagen($imagen) {
 }
 
 /*
- * Actualiza la imagen con id $idImagen
+ * Inserta la imagen con para la fruta
  */
-function update_imagen($mysqli, $idImagen, $imagen) {
+function insert_imagen($mysqli, $fruta, $imagen) {
 
     $file_path = "static/images/" . $imagen['name'];
     if (!file_exists($file_path)) {
@@ -376,9 +411,20 @@ function update_imagen($mysqli, $idImagen, $imagen) {
         move_uploaded_file($imagen['tmp_name'], $file_path);
     }
 
-    $stmt_update_imagen = $mysqli->prepare("UPDATE imagenes SET ruta=? WHERE id=?;");
-    $stmt_update_imagen->bind_param('si', $file_path, $idImagen);
-    $stmt_update_imagen->execute();
+    $stmt_insert_imagen = $mysqli->prepare("INSERT INTO imagenes (ruta, fruta) VALUES (?, ?);");
+    $stmt_insert_imagen->bind_param('si', $file_path, $fruta);
+    $stmt_insert_imagen->execute();
+}
+
+/*
+ * Sube una imagen con al servidor
+ */
+function upload_imagen($imagen, $file_path) {
+
+    if (!file_exists($file_path)) {
+
+        move_uploaded_file($imagen['tmp_name'], $file_path);
+    }
 }
 
 ?>

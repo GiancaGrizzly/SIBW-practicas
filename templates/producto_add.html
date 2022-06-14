@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block include %}
+
+<link rel="stylesheet" href="static/css/producto_add.css">
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="static/js/producto_editar.js"></script>-->
+
+{% endblock %}
+
+
+{% block titulo %}
+
+Añadir producto
+
+{% endblock %}
+
+
+{% block main %}
+
+<!-- CONTAINER-MAIN -->
+<main class="main-formularios">
+
+    <form class="form-formularios" id="id-formulario-add-producto" action="producto_add.php" method="post" enctype="multipart/form-data">
+
+        <ul class="errores" id="errores">
+            {% for err in errores %}
+
+                {% for e in err %}
+
+                <li>{{ e }}</li>
+
+                {% endfor %}
+
+            {% endfor %}
+        </ul>
+
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="marca"><b>Marca</b></label>
+        <input type="text" id="marca" name="marca" required>
+
+        <label for="precio"><b>Precio</b></label>
+        <input type="text" id="precio" name="precio" required>
+
+        <label for="descripcion"><b>Descripcion</b></label>
+        <textarea id="descripcion" name="descripcion" rows="10"></textarea>
+
+        <label for="img1"><b>Imagen 1</b></label>
+        <input type="file" id="img1" name="img1"/><br>
+        <label for="img2"><b>Imagen 2</b></label>
+        <input type="file" id="img2" name="img2"/><br>
+
+        <button type="submit" class="boton-gris">Guardar cambios</button>
+        <button type="button" class="boton-gris"><a href="index.php">Cancelar</a></button>
+
+    </form>
+
+</main>
+
+{% endblock %}
