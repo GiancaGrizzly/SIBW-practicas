@@ -70,7 +70,7 @@ function createListComentarios(comentarios, rol_usuario) {
             nombrefecha.innerHTML = comentarios[i].usuario + ". " + comentarios[i].fecha;
         }
 
-        if (rol_usuario == "Moderador") {
+        if (rol_usuario == "Admin" || rol_usuario == "Moderador") {
 
             var editButton = document.createElement('button');
             editButton.id = comentarios[i].id;

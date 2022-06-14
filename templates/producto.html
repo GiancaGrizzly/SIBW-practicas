@@ -74,7 +74,7 @@ Producto
     </p>
 
     <!--    BOTON-EDITAR-PRODUCTO-->
-    {% if usuario.rol == "Gestor" %}
+    {% if usuario.rol == "Admin" or usuario.rol == "Gestor" %}
 
     <button type="button" class="boton-gris"><a href="producto_editar.php">Editar producto</a></button>
 
