@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="static/css/producto.css">
 <link rel="stylesheet" href="static/css/producto_editar.css">
+<script type="text/javascript" src="static/js/producto.js"></script>
 <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
 <!--<script type="text/javascript" src="static/js/producto_editar.js"></script>-->
 
@@ -65,9 +66,29 @@ Editar producto
             </section>
         </div>
 
+        <button type="button" class="boton-gris" onclick="openForm('id-formulario-etiquetas')">Etiquetas</button>
         <button type="submit" class="boton-gris" name="submit-update-producto">Guardar cambios</button>
         <button type="submit" class="boton-gris" name="submit-delete-producto">Borrar producto</button>
         <button type="button" class="boton-gris"><a href="index.php">Cancelar</a></button>
+
+    </form>
+
+    <form id="id-formulario-etiquetas" name="formulario-etiquetas" action="producto_editar.php" method="post">
+
+        <ul id="id-etiquetas">
+            {% for e in etiquetas %}
+
+            <li>{{ e }}</li>
+
+            {% endfor %}
+        </ul>
+
+        <div id="id-nuevas-etiquetas"></div>
+
+        <button type="button" class="boton-gris" onclick="createEtiqueta()">Añadir etiqueta</button>
+
+        <button type="submit" class="boton-gris" name="submit-etiquetas">Guardar cambios</button>
+        <button type="reset" class="boton-gris" onclick="closeForm('id-formulario-etiquetas')">Cerrar</button>
 
     </form>
 

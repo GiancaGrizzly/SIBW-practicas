@@ -401,22 +401,6 @@ function check_error_imagen($imagen) {
 }
 
 /*
- * Inserta la imagen con para la fruta
- */
-function insert_imagen($mysqli, $fruta, $imagen) {
-
-    $file_path = "static/images/" . $imagen['name'];
-    if (!file_exists($file_path)) {
-
-        move_uploaded_file($imagen['tmp_name'], $file_path);
-    }
-
-    $stmt_insert_imagen = $mysqli->prepare("INSERT INTO imagenes (ruta, fruta) VALUES (?, ?);");
-    $stmt_insert_imagen->bind_param('si', $file_path, $fruta);
-    $stmt_insert_imagen->execute();
-}
-
-/*
  * Sube una imagen con al servidor
  */
 function upload_imagen($imagen, $file_path) {
@@ -424,6 +408,47 @@ function upload_imagen($imagen, $file_path) {
     if (!file_exists($file_path)) {
 
         move_uploaded_file($imagen['tmp_name'], $file_path);
+    }
+}
+
+/*
+ * Devuelve todas las etiquetas de la fruta $fruta
+ */
+function get_etiquetas($fruta) {
+
+    $mysqli = connect_db();
+
+    $stmt_get_etiquetas = $mysqli->prepare("SELECT etiqueta FROM etiquetas WHERE fruta = ?");
+    $stmt_get_etiquetas->bind_param('i', $fruta);
+    $stmt_get_etiquetas->execute();
+
+    $query_etiquetas = $stmt_get_etiquetas->get_result();
+
+    $etiquetas = array();
+
+    while ($row = $query_etiquetas->fetch_assoc()) {
+
+        $etiquetas[] = $row['etiqueta'];
+    }
+
+    return $etiquetas;
+}
+
+/*
+ * Inserta etiquetas para la fruta $fruta
+ */
+function insert_etiquetas($fruta, $etiquetas) {
+
+    $mysqli = connect_db();
+
+    foreach ($etiquetas as $e) {
+
+        if ($e != "") {
+
+            $stmt_insert_etiqueta = $mysqli->prepare("INSERT INTO etiquetas (etiqueta, fruta) VALUES (?, ?);");
+            $stmt_insert_etiqueta->bind_param('si', $e, $fruta);
+            $stmt_insert_etiqueta->execute();
+        }
     }
 }
 

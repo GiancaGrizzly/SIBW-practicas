@@ -42,7 +42,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: index.php");
         }
     }
+    elseif (isset($_POST['submit-etiquetas'])) {
+
+        insert_etiquetas($_SESSION['fruta'], $_POST);
+
+        alert("Etiquetas añadidas con éxito.");
+    }
 }
+
+$variablesTwig['etiquetas'] = get_etiquetas($_SESSION['fruta']);
 
 //    if (empty($errores)) {
 //

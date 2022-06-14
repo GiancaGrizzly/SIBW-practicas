@@ -55,3 +55,12 @@ function editbuttonfunction(id) {
     document.forms["formulario-update"]["updateComentario"].value = document.getElementById("c" + id).innerHTML;
     document.getElementsByName("idComentario")[0].value = id;
 }
+
+function createEtiqueta() {
+
+    var etiqueta = document.createElement('input');
+    etiqueta.type = 'text';
+    etiqueta.name = Math.random().toString();
+
+    document.getElementById('id-nuevas-etiquetas').appendChild(etiqueta);
+}

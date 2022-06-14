@@ -29,3 +29,24 @@
     width: 25%;
     align-self: center;
 }
+
+#id-formulario-etiquetas {
+    border: 3px solid var(--main-grey);
+    background-color: var(--green1);
+    width: 50%;
+    height: 75%;
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    display: none;
+}
+
+#id-formulario-etiquetas input {
+    width: 50%;
+}
+
+#id-etiquetas, #id-nuevas-etiquetas {
+    max-height: 30%;
+    overflow: scroll;
+}
