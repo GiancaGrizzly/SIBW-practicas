@@ -4,7 +4,6 @@
 {% block include %}
 
 <link rel="stylesheet" href="static/css/portada.css">
-<script type="text/javascript" src="static/js/portada.js"></script>
 
 {% endblock %}
 
@@ -21,13 +20,22 @@ Home
 <!-- CONTAINER-MAIN -->
 <main class="main-portada" id="idmain-portada">
 
-    <script type="text/javascript">
+    {% for fruta in frutas  %}
 
-        var array_frutas = JSON.parse('{{ frutas | json_encode | raw }}');
+    <section class="grid-item">
 
-        createGridFrutas(array_frutas);
+        <figure>
+            <a href="producto.php?fruta={{ fruta.id }}">
+                <img src="{{ fruta.img1 }}">
+            </a>
+            <figcaption>
+                <a href="producto.php?fruta={{ fruta.id }}">{{ fruta.marca }}</a>
+            </figcaption>
+        </figure>
 
-    </script>
+    </section>
+
+    {% endfor %}
 
 </main>
 
