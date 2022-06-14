@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    IDupdateproducto.onclick = update_producto;
+    // IDupdateproducto.onclick = update_producto;
     // IDdeleteproducto.onclick = delete_producto;
 });
 
