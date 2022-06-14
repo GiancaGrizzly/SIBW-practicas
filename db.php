@@ -104,6 +104,28 @@ function get_usuario($nombre) {
 }
 
 /*
+ * Devuelve un array con todos los usuarios
+ */
+function get_all_usuarios() {
+
+    $mysqli = connect_db();
+
+    $stmt_get_usuarios = $mysqli->prepare("SELECT nombre, rol FROM usuarios");
+    $stmt_get_usuarios->execute();
+
+    $query_usuarios = $stmt_get_usuarios->get_result();
+
+    $usuarios = array();
+
+    while ($row = $query_usuarios->fetch_assoc()) {
+
+        array_push($usuarios, ["nombre"=>$row['nombre'], "rol"=>$row['rol']]);
+    }
+
+    return $usuarios;
+}
+
+/*
  * Registra un nuevo usuario en la base de datos
  */
 function insert_usuario($nombre, $hash, $email, $rol) {

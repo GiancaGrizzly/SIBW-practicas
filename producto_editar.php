@@ -37,10 +37,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         delete_producto($_SESSION['fruta']);
 
-        if (!headers_sent()) {
-
-            header("Location: index.php");
-        }
+        echo "<script> window.location.href = 'index.php'</script>";
     }
     elseif (isset($_POST['submit-etiquetas'])) {
 
